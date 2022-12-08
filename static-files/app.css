@@ -1,0 +1,10 @@
+header, footer {
+  padding: 0.6rem 1rem 0.5rem 1rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.5rem;
+  background-color: #15242d;
+  color: rgba(255,255,244,0.9);
+  overflow: hidden;
+  box-sizing: border-box;
+  min-height: 2.6rem;
+};

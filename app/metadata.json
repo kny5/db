@@ -1,0 +1,24 @@
+{
+    "title": "Regular metadata keys can go here too",
+    "plugins": {
+        "datasette-cluster-map": {
+          "tile_layer": "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+          "tile_layer_options": {
+              "attribution": '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+              "subdomains": "abcd",
+              "minZoom": 3,
+              "maxZoom": 20,
+              "ext": "jpg"
+          },
+            "latitude_column": "latitude",
+            "longitude_column": "longitude"
+        }
+    },
+    "extra_css_urls": [
+        "https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css",
+        "/assets/app.css"
+    ],
+    "extra_js_urls": [
+        "https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+    ]
+}

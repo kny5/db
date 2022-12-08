@@ -1,0 +1,920 @@
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'   width='2080' height='1726' viewBox='0 0 2080 1726' >
+  <script type='text/ecmascript'>
+  <![CDATA[
+  function hghl(el) { for ( var i in el ){ var elem = document.getElementById(el[i]); if ( elem != null ) elem.setAttribute('class','highlight');  }  }
+  function uhghl(el) { for ( var i in el ){ var elem = document.getElementById(el[i]); if ( elem != null ) elem.setAttribute('class','unhighlight'); }  } 
+  ]]>
+  </script> 
+
+<style type='text/css'>
+  text                { fill:#c5c5c5; font-family: Trebuchet MS, 'Trebuchet MS', Dialog; font-size:13.0px; }
+  a text:hover        { fill:#ffffff; text-shadow: 0px 0px 6px #d0ce00; font-size:13px; }
+  text.highlight      { fill:#e79a33; text-shadow: 0px 0px 4px #674210; font-size:13px; }
+  text.white          { fill:#c5c5c5; }
+  text.colType        { fill:#737373; }
+  text.relName        { fill:#85909a; }
+  text.legendTitle    { fill:#58c101; font-weight:bold; }
+  text.legendSubTitle { fill:#b0b0b0; font-size:11px; }
+  path                { stroke:#a2bac5; stroke-width:1.25; fill:none;}
+  path.virtual        { stroke:#a364b5; }
+  path.logo           { fill:#b5c8a9;fill-opacity:1;stroke-width:0.3;stroke:#222222; }
+  path.dotted         { stroke-dasharray:4,2; }
+  path.unhighlight    { stroke-width:10; opacity:0;}
+  path.highlight      { stroke-width:3; stroke:#6db3d6; opacity:0.6;}
+  path.line           { stroke-width:5; stroke-linecap:round; stroke-linejoin:round; }
+  rect.entity         { fill:#2a2b2c; stroke-width:0;shape-rendering:crispEdges; filter:url(#shadow); }
+  line.delim          { stroke-width:1; shape-rendering:crispEdges; }
+  line.topLine        { stroke-width:3px; shape-rendering:crispEdges; }
+  text.callout        { fill:#dfe0c5; font-family: Trebuchet MS, 'Trebuchet MS', Dialog; font-size:13.5px; }
+  rect.callout        { fill:url(#calloutGradient); stroke:#3f3f3f; stroke-width:0.5; }
+  text.grp            { fill:#8a8a8a; }
+  rect.grp            { stroke:#a1a1a1; stroke-width:1.7; opacity:0.75; }
+  path.bgPattern      { fill:none;fill-opacity:1;stroke-width:0.6;stroke:#3b3c3d; }
+  path.eval           { fill:#44484b;stroke-width:0.6;stroke:#5a5c5f; }
+  rect.palpable       { fill:#504d41; }
+</style>
+<defs>
+    <pattern id="layoutBgA" width="60" height="34.64" patternUnits="userSpaceOnUse">
+        <path class='bgPattern' d='M 0 17.32 L 10 0 L 30 0 L 40 17.326 L 30 34.64 L 10 34.64 Z' />
+        <path class='bgPattern' d='M 40 17.32 L 60 17.32 Z' />
+    </pattern>
+    <pattern id='layoutBgEval'  width='300' height='300' x='0' y='0' patternUnits="userSpaceOnUse">
+        <path class='eval' d='m 62.011835,91.267143 c 3.536475,3.175214 2.262669,8.705999 -1.637711,11.015197 -3.594697,5.8423 -6.34682,-2.892623 -9.715478,-4.653898 -5.609222,-2.838926 2.050802,-6.680123 4.77004,-8.319046 2.334696,-0.724067 4.935143,0.312302 6.583149,1.957747 z m -2.720492,2.538595 c -2.698397,-3.517732 -9.282815,1.269287 -3.69635,3.568637 2.765331,5.605665 7.052809,-0.56184 3.69635,-3.568637 z' />
+        <path class='eval' d='m 72.25864,84.624638 c 4.108046,3.143003 -0.737059,6.895259 -1.994918,8.323564 -3.586718,5.561143 -6.495079,-4.197379 -10.07759,-5.582178 -4.443422,-1.088878 1.349298,-7.249213 2.503526,-2.503449 2.464639,4.517161 2.304019,-3.70697 6.291113,-1.995914 1.280083,0.137865 2.410691,0.864819 3.277869,1.757977 z m -2.646109,2.323242 c -4.797162,-3.078383 -2.810517,6.305507 0.515161,1.990646 0.296432,-0.688582 0.01209,-1.493412 -0.515161,-1.990646 z' />
+        <path class='eval' d='m 78.230641,79.436735 c 4.142121,3.027466 -2.020102,10.435276 -3.450543,5.477315 3.306312,-5.248112 -9.186019,-2.220094 -5.805994,-8.77679 -0.544141,-3.93011 6.797826,-2.102227 3.386015,0.245477 -0.181085,2.915838 4.637371,1.019311 5.870522,3.053982 z' />
+        <path class='eval' d='m 82.744502,72.597397 c -4.901605,1.926521 1.146497,6.285555 2.559694,2.225783 6.21817,3.539297 -6.640186,8.416664 -7.590325,1.997457 -2.24365,-2.914883 4.026676,-10.148618 5.030631,-4.22324 z' />
+        <path class='eval' d='m 90.727458,64.259158 c 1.583987,1.690029 3.321317,3.2696 4.81267,5.026353 -2.535706,6.849794 -6.445583,-5.918773 -8.388458,-0.167017 0.782768,2.03426 5.877405,3.752079 2.670979,5.711199 -3.315119,1.519161 -5.782422,-5.157931 -8.858893,-6.780537 -4.229842,-1.139816 1.510134,-7.074128 2.586227,-2.385939 3.141198,5.495193 1.840537,-5.598295 7.177489,-1.404062 z' />
+        <path class='eval' d='m 99.622027,58.374253 c 1.493293,1.9548 -6.281936,7.024659 -0.885258,4.740447 0.386238,-4.434477 6.131941,-1.133173 2.175851,1.618005 -4.421491,6.12739 -13.666659,-3.151506 -7.058299,-7.136537 1.785129,-1.119329 4.348209,-0.743179 5.767706,0.778085 z m -2.900824,1.89746 c -3.608188,-2.208543 -2.280489,5.00803 -0.12563,0.329531 z' />
+        <path class='eval' d='m 115.18023,50.570441 c -1.61703,5.201678 -4.6204,-0.364502 -7.01598,-1.749619 -4.40977,2.122562 4.89641,4.913939 1.89606,7.018157 -2.48061,3.877635 -4.11404,-4.060614 -7.01192,-2.6391 -1.76318,3.107252 7.28394,6.252304 0.87346,7.876177 -1.74515,-2.956649 -9.055498,-5.610518 -3.950378,-8.66062 1.696478,1.897023 1.770418,-5.43503 5.347308,-3.072411 -0.44014,-5.474701 6.11995,-4.950882 7.7846,-0.815355 0.69076,0.682329 1.39587,1.351469 2.07685,2.042771 z' />
+        <path class='eval' d='m 120.54891,39.417125 c 2.50681,1.334124 4.80466,4.941837 0.75044,5.297362 -0.46414,1.89865 -5.25369,5.602652 -8.01742,1.815475 -3.87345,-2.809139 -0.0676,-7.603869 2.3036,-8.133924 1.6795,-3.853018 3.16703,-1.199465 4.96338,1.021087 z m -2.2464,2.175828 c -4.8049,-2.992167 -3.08987,6.380358 0.42374,2.036159 0.33052,-0.677508 0.12099,-1.525836 -0.42374,-2.036159 z' />
+        <path class='eval' d='m 128.50836,24.06821 c -5.10403,3.035506 3.20535,6.383175 5.05938,9.450276 -0.91853,2.95886 -4.06493,3.650723 -5.34691,0.265618 -2.25715,-2.089033 -4.65672,-6.948595 -7.07024,-2.584686 -4.71758,-3.764394 3.81217,-5.812054 5.12382,-9.226328 0.75738,0.677487 1.38637,1.498638 2.23389,2.095175 z' />
+        <path class='eval' d='m 137.14366,22.299812 c -3.09615,2.259885 0.71537,4.412454 1.99042,6.435866 -3.08975,5.080354 -5.91384,-2.98648 -8.92144,-4.094939 1.44369,-3.219573 3.3497,-1.335928 4.27156,-4.41058 0.97822,-0.894325 1.75044,1.871047 2.65946,2.069653 z' />
+        <path class='eval' d='m 136.85093,14.890174 c 2.31562,5.283511 -7.17975,1.771993 -1.29675,-0.475107 l 0.7108,0.08973 z m 4.867,5.317354 c 2.56912,1.439678 4.26517,4.725219 0.30678,5.233637 -1.56592,-3.098864 -9.51683,-5.749448 -3.64502,-8.633714 1.17746,0.325095 2.15375,2.591149 3.33824,3.400077 z' />
+        <path class='eval' d='m 149.95578,11.976423 c 2.50679,1.334142 4.80455,4.94192 0.75041,5.297394 -0.4641,1.898604 -5.25368,5.602645 -8.0174,1.81545 -3.87347,-2.80918 -0.0676,-7.603844 2.30366,-8.133968 1.67949,-3.8530525 3.16695,-1.1993573 4.96333,1.021124 z m -2.24641,2.175828 c -4.80489,-2.992177 -3.08986,6.380343 0.42374,2.036167 0.33055,-0.677518 0.121,-1.52585 -0.42374,-2.036167 z' />
+        <path class='eval' d='m 153.26135,7.538431 c 2.60497,1.5799548 6.03999,5.944272 1.08117,6.050232 -2.53319,-3.231828 -7.20316,-6.4304525 -8.84748,-9.4582682 1.89121,-2.8664883 3.78452,-2.247699 5.38514,0.8929426 0.78017,0.8503859 1.57195,1.6911437 2.38118,2.5150667 z' />
+    </pattern>
+    <linearGradient id='groupUnderTitleLine' x1='0%' y1='0%' x2='100%' y2='0%' >
+        <stop offset='0%' stop-color='#7a7a7a' stop-opacity='0.9'/>
+        <stop offset='100%' stop-color='7a7a7a' stop-opacity='0' />
+    </linearGradient>
+    <radialGradient id='calloutGradient' cx='25%' cy='20%' r='80%' fx='10%' fy='10%'>
+        <stop offset='0%' stop-color='#64450d' />
+        <stop offset='100%' stop-color='#473619' />
+    </radialGradient>
+    <filter id='shadow' width='120%' height='120%'>
+        <feOffset result='offOut' in='SourceGraphic' dx='0' dy='0' />
+        <feColorMatrix result='matrixOut' in='offOut'
+                       values='0.1 0 0 0 0 0 0.1 0 0 0 0 0 0.1 0 0 0 0 0 0.2 0' />
+        <feGaussianBlur result='blurOut' in='matrixOut' stdDeviation='4' />
+        <feBlend in='SourceGraphic' in2='blurOut' />
+    </filter>
+    <filter id='fkShadow' height='130%'>
+        <feGaussianBlur in='SourceAlpha' stdDeviation='1.5'/> <!-- stdDeviation is how much to blur -->
+        <feOffset dx='1.2' dy='1.2' result='offsetblur'/> <!-- how much to offset -->
+        <feMerge>
+            <feMergeNode/> <!-- this contains the offset blurred image -->
+            <feMergeNode in='SourceGraphic'/> <!-- this contains the element that the filter is applied to -->
+        </feMerge>
+    </filter>
+    <radialGradient id='legendGradient' cx='5%' cy='5%' r='100%' >
+        <stop offset='0%' stop-color='#42505b' stop-opacity='1'/>
+        <stop offset='100%' stop-color='#33393d' stop-opacity='1' />
+    </radialGradient>
+    <symbol id='calloutArrowDown' >
+        <path d='M 0,0 L 8,12 L 16,0 z' style='fill:#f8f6d1;stroke:none; filter: url(#shadow);' />
+        <path d='M 0,0 L 8,12 L 16,0' style='stroke:#bebdbd; stroke-width:0.5;' />
+    </symbol>
+    <symbol id='calloutArrowUp' >
+        <path d='M 0,16 L 8,4 L 16,16 z' style='fill:#ffffff; stroke:none; filter: url(#shadow);' />
+        <path d='M 0,16 L 8,4 L 16,16' style='stroke:#bebdbd; stroke-width:0.5;' />
+    </symbol>
+    <symbol id='pk' >
+        <g transform='scale(0.99)'>
+            <path style='fill:#fffa7d;stroke:#765f03;stroke-width:0.6;stroke-linecap:round;stroke-linejoin:round;'
+                  d='M 9.3678877,3.5695485 C 9.1030218,3.2729386 9.0796382,2.7628519 9.3396185,2.4517097 9.5449651,2.1956495 9.9040386,2.0980533 10.199638,2.2169415 10.533525,2.3415459 10.775153,2.706942 10.750675,3.0842709 10.737029,3.3980003 10.541153,3.699122 10.258248,3.8066067 9.966649,3.9250429 9.6169668,3.8418805 9.4008073,3.6062324 9.3894892,3.5943518 9.3785264,3.582104 9.3678886,3.5695487 z M 11.226617,6.9916004 C 11.888137,6.3548946 12.293488,5.4172188 12.311087,4.442353 12.378144,2.7379364 11.248678,1.0541269 9.7322318,0.44767357 8.3887112,-0.1280313 6.7865012,0.26822889 5.8918395,1.4007929 5.080823,2.3839145 4.9336815,3.8452096 5.3635544,5.101615 L 4.3670905,5.315913 C 4.0664984,5.3682645 4.0967703,5.6316724 4.2574957,5.8208829 L 4.9124,6.5655244 4.1543436,7.2512357 3.2136002,7.2163506 3.1674775,8.5586827 2.0406832,8.5086512 1.5965306,8.9299953 1.5471661,10.179833 0.75616674,10.195223 0.2112857,10.758575 0.15354288,11.735988 0.07199052,12.765553 c 0.36440953,0.238225 0.79006967,0.195492 1.44938278,-0.02675 L 6.3033562,8.1282037 6.8217102,8.6765688 C 6.9985465,8.8799427 7.3003699,8.7497574 7.358381,8.5016252 L 7.4938877,7.5084164 c 0.8537488,0.3985387 1.8303125,0.4711541 2.6851793,0.1427713 0.393927,-0.1407258 0.746858,-0.3701772 1.04755,-0.6595873 z'/>
+            <path d='M 6.8014948,6.3102123 0.15369063,13.024481 0.21560535,12.141962 6.0062342,6.2683782 z'
+                  style='fill:#ffe5a5;fill-opacity:1;stroke:#854e31;stroke-width:0.06912433;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:3.00300009'/>
+        </g>
+    </symbol>
+    <symbol id='idx1' >
+        <g transform='scale(0.99)'>
+            <rect width='4' height='4' x='7' y='1' style='fill:#ffff3f;stroke:#e3a23a;stroke-width:0.6;' ry='0.83'/>
+            <rect width='4' height='4' x='1' y='7' style='fill:#ffff3f;stroke:#e3a23a;stroke-width:0.6;' ry='0.832'/>
+            <rect width='4' height='4' x='7' y='7' style='fill:#ffff3f;stroke:#e3a23a;stroke-width:0.6;' ry='0.832'/>
+        </g>
+    </symbol>
+    <symbol id='idx2' >
+        <g transform='scale(0.99)'>
+            <rect width='4' height='3' x='6' y='1' style='fill:#7fc8e9;stroke:#2f6f8c;stroke-width:0.6;' ry='0.83'/>
+            <rect width='7' height='3' x='3' y='6' style='fill:#7fc8e9;stroke:#2f6f8c;stroke-width:0.6;' ry='0.832'/>
+        </g>
+    </symbol>
+    <symbol id='unq' >
+        <g transform='scale(0.99)'>
+            <rect style='fill:#fbea8e;stroke:#7e4d31;stroke-width:0.71934468;stroke-linecap:round;stroke-linejoin:round;'
+                  width='2.29' height='8.43' x='7.48' y='-0.76' ry='1.14' transform='matrix(0.701,0.713,-0.727,0.685,0,0)' />
+            <path style='fill:#323232;stroke:#858585;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;'
+                  d='m 26.04,8.64 a 4.13,4.13 0 1 1 -8.26,0 4.13,4.13 0 1 1 8.26,0 z'
+                  transform='matrix(1.025,0,0,0.987,-14.690,-3.862)' />
+            <text x='5.8' y='7.4' style='font-size:7px;fill:#8a8a8a;'>U</text>
+        </g>
+    </symbol>
+    <symbol id='idx' >
+        <g transform='scale(0.99)'>
+            <rect style='fill:#fbea8e;stroke:#7e4d31;stroke-width:0.71934468;stroke-linecap:round;stroke-linejoin:round;'
+                  width='2.29' height='8.43' x='7.48' y='-0.76' ry='1.14' transform='matrix(0.701,0.713,-0.727,0.685,0,0)' />
+            <path style='fill:#323232;stroke:#858585;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;'
+                  d='m 26.04,8.64 a 4.13,4.13 0 1 1 -8.26,0 4.13,4.13 0 1 1 8.26,0 z'
+                  transform='matrix(1.025,0,0,0.987,-14.690,-3.862)' />
+        </g>
+    </symbol>
+    <symbol id='fk' >
+        <g transform='scale(0.87)'>
+            <path style='fill:#3791c5;stroke:#3791c5;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+                  d='M 12.48,0.33 7.07,0.89 9.067,2.974 0.329,11.731 1.073,12.597 9.811,3.841 11.77,5.78 z' />
+        </g>
+    </symbol>
+    <symbol id='ref' >
+        <g transform='scale(0.87)'>
+            <path style='fill:#f3e1b7;stroke:#f3e1b7;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+                  d='M 0.10,12.70 5.31,12.15 3.40,10.06 11.82,1.32 11.11,0.45 2.68,9.19 0.80,7.24 z'/>
+        </g>
+    </symbol>
+    <symbol id='flag0' >
+        <g transform='scale(0.92)'>
+            <path style='fill:#b7d0f6;stroke:#404040;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+                  d='M 0.12,12.67 0.16,7.22 C 2.59,7.22 4.13,8.78 9.22,4.22 5.68,4.98 2.53,4.50 0.09,1.80 z'/>
+        </g>
+    </symbol>
+    <symbol id='flag1' >
+        <g transform='scale(0.92)'>
+            <path style='fill:#f4a393;stroke:#404040;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+                  d='M 0.12,12.67 0.16,7.22 C 2.59,7.22 4.13,8.78 9.22,4.22 5.68,4.98 2.53,4.50 0.09,1.80 z'/>
+        </g>
+    </symbol>
+    <symbol id='flag2' >
+        <g transform='scale(0.92)'>
+            <path style='fill:#77ec8b;stroke:#404040;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+                  d='M 0.12,12.67 0.16,7.22 C 2.59,7.22 4.13,8.78 9.22,4.22 5.68,4.98 2.53,4.50 0.09,1.80 z'/>
+        </g>
+    </symbol>
+    <symbol id='nn' >
+        <path style='stroke:#9b3e50;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+              d='M 0,0 3,3 M 0,3 3,0 z'/>
+    </symbol>
+    <symbol id='view' >
+        <g transform='scale(0.99)'>
+            <line x1='12' y1='6' x2='19' y2='0' stroke='gray' stroke-width='0.5' />
+            <line x1='0' y1='6' x2='7' y2='0' stroke='gray' stroke-width='0.5' />
+            <circle cx='3' cy='6' r='3' fill='#f9ebbc' stroke='gray' stroke-width='0.5'/>
+            <circle cx='10' cy='6' r='3' fill='#f9ebbc' stroke='gray' stroke-width='0.5'/>
+        </g>
+    </symbol>
+</defs>
+
+<defs>  <marker id='src0u' viewBox='0 0 16.00 8.00' refX='8.00' refY='4.00' markerWidth='16.00' markerHeight='8.00' orient='auto'>
+    <path d='M 0.00,4.00 L 16.00,4.00 z' />
+    <circle cx='12.00' cy='4.00' r='2.67' style='fill:white;stroke:#5e554d;' />
+    <path d='M 4.00,0.00 L 4.00, 8.00 z' />
+  </marker>
+  <marker id='src0' viewBox='0 0 16.00 8.00' refX='8.00' refY='4.00' markerWidth='16.00' markerHeight='8.00' orient='auto'>
+    <path d='M 0.00,4.00 L 16.00,4.00 z' />
+    <circle cx='12.00' cy='4.00' r='2.67' style='fill:white;stroke:#5e554d;' />
+    <path d='M 0.00,0.00 L 8.00,4.00 L 0.00,8.00' />
+  </marker>
+  <marker id='src1u' viewBox='0 0 16.00 8.00' refX='8.00' refY='4.00' markerWidth='16.00' markerHeight='8.00' orient='auto'>
+    <path d='M 0.00,4.00 L 16.00,4.00 z' />
+    <path d='M 8.00,0.00 L 8.00, 8.00 z' />
+    <path d='M 4.00,0.00 L 4.00, 8.00 z' />
+  </marker>
+  <marker id='src1' viewBox='0 0 16.00 8.00' refX='8.00' refY='4.00' markerWidth='16.00' markerHeight='8.00' orient='auto'>
+    <path d='M 0.00,4.00 L 16.00,4.00 z' />
+    <path d='M 8.00,0.00 L 8.00, 8.00 z' />
+    <path d='M 0.00,0.00 L 8.00,4.00 L 0.00,8.00' />
+  </marker>
+  <marker id='dest0u' viewBox='0 0 16.00 8.00' refX='8.00' refY='4.00' markerWidth='16.00' markerHeight='8.00' orient='auto'>
+    <path d='M 8.000,4.000 L 16.000,4.000 L 8.000,0.000 L 16.000,4.000 L 8.000,8.000' />
+  </marker>
+  <marker id='dest0' viewBox='0 0 16.00 8.00' refX='8.00' refY='4.00' markerWidth='16.00' markerHeight='8.00' orient='auto'>
+    <path d='M 0.00,4.00 L 16.00,4.00 z' />
+    <circle cx='4.00' cy='4.00' r='2.67' style='fill:white;stroke:#5e554d;' />
+    <path d='M 16.00,0.00 L 8.00,4.00 L 16.00,8.00' />
+  </marker>
+  <marker id='dest1u' viewBox='0 0 16.00 8.00' refX='8.00' refY='4.00' markerWidth='16.00' markerHeight='8.00' orient='auto'>
+    <path d='M 8.000,4.000 L 16.000,4.000 L 8.000,0.000 L 16.000,4.000 L 8.000,8.000' />
+  </marker>
+  <marker id='dest1' viewBox='0 0 16.00 8.00' refX='8.00' refY='4.00' markerWidth='16.00' markerHeight='8.00' orient='auto'>
+    <path d='M 0.00,4.00 L 16.00,4.00 z' />
+    <path d='M 16.00,0.00 L 8.00,4.00 L 16.00,8.00' />
+  </marker>
+  <marker id='arrow' viewBox='0 0 16.00 8.00' refX='8.00' refY='4.00' markerWidth='16.00' markerHeight='8.00' orient='auto'>
+    <path d='M 8.000,4.000 L 16.000,4.000 L 8.000,0.000 L 16.000,4.000 L 8.000,8.000' />
+  </marker>
+  <marker id='line_arrow' viewBox='0 0 16.00 8.00' refX='8.00' refY='4.00' markerWidth='16.00' markerHeight='8.00' orient='auto'>
+    <path d='M 8.000,4.000 L 16.000,4.000 L 8.000,0.000 L 16.000,4.000 L 8.000,8.000' />
+  </marker>
+  <marker id='line_straight' viewBox='0 0 16.00 8.00' refX='8.00' refY='4.00' markerWidth='16.00' markerHeight='8.00' orient='auto'>
+    <path d='M 0.00,4.00 L 16.00,4.00 z' />
+  </marker>
+  <linearGradient id='tbg_3986C1' x1='0%' y1='0%' x2='0%' y2='100%' >
+     <stop offset='0%' stop-color='#1E4564' /> 
+     <stop offset='40%' stop-color='#1F3445' /> 
+     <stop offset='100%' stop-color='#22313E' /> 
+  </linearGradient>
+</defs>
+
+<!-- == Shape Colors == -->
+<!-- == Desktop == -->
+<rect x='1' y='1' width='2078' height='1724' rx='8' ry='8' style='fill:url(#layoutBgA); stroke:#aaa; stroke-width:1px;' />
+<rect x='1' y='1' width='2078' height='1724' rx='8' ry='8' style='fill:url(#layoutBgEval);' />
+
+<!-- == Legend == -->
+<g transform='translate(10,10)'>
+  <rect x='10' y='10' width='420' height='70' rx='6' ry='6' style='fill:url(#legendGradient);filter:url(#shadow);'/> 
+  <text x='20' y='25' class='legendTitle' >OKW_Schema</text> 
+  <a xlink:href='https://dbschema.com'><text x='20' y='39' class='legendSubTitle'><tspan>@ DbSchema</tspan></text></a> 
+  <text x='20' y='53' class='legendSubTitle'><tspan>Read the schema comments as mouse-over tooltips.</tspan></text> 
+  <text x='20' y='67' class='legendSubTitle'><tspan>Zoom using CTRL + mouse wheel, pan by dragging with the right-mouse button.</tspan></text> 
+</g>
+
+<g transform='translate(0,110)'>
+<!-- == Fk '4. Manufacturing Facility Properties_fk_facility_location' == -->
+<path id='4. Manufacturing Facility Properties_fk_facility_location'  onmouseover="hghl(['4. Manufacturing Facility Properties_fk_facility_location','INSTANCE.6. Location Properties.6.1. Address'])" onmouseout="uhghl(['4. Manufacturing Facility Properties_fk_facility_location','INSTANCE.6. Location Properties.6.1. Address'])" transform='translate(8,0)' class='unhighlight' d='M 1440,464L 1384,464Q 1376,464 1376,456L 1376,360Q 1376,352 1368,352L 1360,352' >
+	<title>Fk fk_facility_location
+4. Manufacturing Facility Properties ref 6. Location Properties ( - -&gt; 6.1. Address )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#src0u)' marker-end='url(#dest0u)'  class='dotted virtual'  d='M 1440,464L 1384,464Q 1376,464 1376,456L 1376,360Q 1376,352 1368,352L 1360,352' ><title>Fk fk_facility_location
+4. Manufacturing Facility Properties ref 6. Location Properties ( - -&gt; 6.1. Address )</title></path>
+<text x='1445' y='459' transform='rotate(0 1445,459)' class='relName'>-</text>
+<!-- == Fk '4.27. Circular Economy sub-properties_fk_4.27. circular economy sub-properties' == -->
+<path id='4.27. Circular Economy sub-properties_fk_4.27. circular economy sub-properties'  onmouseover="hghl(['4.27. Circular Economy sub-properties_fk_4.27. circular economy sub-properties'])" onmouseout="uhghl(['4.27. Circular Economy sub-properties_fk_4.27. circular economy sub-properties'])" transform='translate(8,0)' class='unhighlight' d='M 1776,480L 1696,480' >
+	<title>Fk fk_4.27. circular economy sub-properties
+4.27. Circular Economy sub-properties ref 4. Manufacturing Facility Properties (  )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#src1)' marker-end='url(#dest1u)'  class='virtual'  d='M 1776,480L 1696,480' ><title>Fk fk_4.27. circular economy sub-properties
+4.27. Circular Economy sub-properties ref 4. Manufacturing Facility Properties (  )</title></path>
+<text x='1785' y='475' transform='rotate(0 1785,475)' class='relName'></text>
+<!-- == Fk '4.28. Human Capacity sub-properties_fk_4.28. human capacity sub-properties' == -->
+<path id='4.28. Human Capacity sub-properties_fk_4.28. human capacity sub-properties'  onmouseover="hghl(['4.28. Human Capacity sub-properties_fk_4.28. human capacity sub-properties'])" onmouseout="uhghl(['4.28. Human Capacity sub-properties_fk_4.28. human capacity sub-properties'])" transform='translate(8,0)' class='unhighlight' d='M 1776,848L 1696,848' >
+	<title>Fk fk_4.28. human capacity sub-properties
+4.28. Human Capacity sub-properties ref 4. Manufacturing Facility Properties (  )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#src1)' marker-end='url(#dest1u)'  class='virtual'  d='M 1776,848L 1696,848' ><title>Fk fk_4.28. human capacity sub-properties
+4.28. Human Capacity sub-properties ref 4. Manufacturing Facility Properties (  )</title></path>
+<text x='1785' y='843' transform='rotate(0 1785,843)' class='relName'></text>
+<!-- == Fk '4.29. Innovation Space sub-properties_fk_4.29. innovation space sub-properties' == -->
+<path id='4.29. Innovation Space sub-properties_fk_4.29. innovation space sub-properties'  onmouseover="hghl(['4.29. Innovation Space sub-properties_fk_4.29. innovation space sub-properties'])" onmouseout="uhghl(['4.29. Innovation Space sub-properties_fk_4.29. innovation space sub-properties'])" transform='translate(8,0)' class='unhighlight' d='M 1776,1024L 1688,1024Q 1680,1024 1680,1016L 1680,928' >
+	<title>Fk fk_4.29. innovation space sub-properties
+4.29. Innovation Space sub-properties ref 4. Manufacturing Facility Properties (  )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#src1)' marker-end='url(#dest1u)'  class='virtual'  d='M 1776,1024L 1688,1024Q 1680,1024 1680,1016L 1680,928' ><title>Fk fk_4.29. innovation space sub-properties
+4.29. Innovation Space sub-properties ref 4. Manufacturing Facility Properties (  )</title></path>
+<text x='1785' y='1019' transform='rotate(0 1785,1019)' class='relName'></text>
+<!-- == Fk '5.10 social_media_subproperties_JSon' == -->
+<path id='5.10 social_media_subproperties_JSon'  onmouseover="hghl(['5.10 social_media_subproperties_JSon','INSTANCE.5. Agent Properties.5.10 social_media_subproperties'])" onmouseout="uhghl(['5.10 social_media_subproperties_JSon','INSTANCE.5. Agent Properties.5.10 social_media_subproperties'])" transform='translate(8,0)' class='unhighlight' d='M 800,752L 800,672' >
+	<title>Fk JSon
+5.10 social_media_subproperties ref 5. Agent Properties (  )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#src1u)' marker-end='url(#arrow)'  class='dotted '  d='M 800,752L 800,672' ><title>Fk JSon
+5.10 social_media_subproperties ref 5. Agent Properties (  )</title></path>
+<text x='803' y='750' transform='rotate(270 803,750)' class='relName'>Obj</text>
+<!-- == Fk '5.9 contact_subproperties_JSon' == -->
+<path id='5.9 contact_subproperties_JSon'  onmouseover="hghl(['5.9 contact_subproperties_JSon','INSTANCE.5. Agent Properties.5.9 contact_subproperties'])" onmouseout="uhghl(['5.9 contact_subproperties_JSon','INSTANCE.5. Agent Properties.5.9 contact_subproperties'])" transform='translate(8,0)' class='unhighlight' d='M 672,752L 672,696Q 672,688 680,688L 808,688Q 816,688 816,680L 816,672' >
+	<title>Fk JSon
+5.9 contact_subproperties ref 5. Agent Properties (  )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#src1u)' marker-end='url(#arrow)'  class='dotted '  d='M 672,752L 672,696Q 672,688 680,688L 808,688Q 816,688 816,680L 816,672' ><title>Fk JSon
+5.9 contact_subproperties ref 5. Agent Properties (  )</title></path>
+<text x='675' y='750' transform='rotate(270 675,750)' class='relName'>Obj</text>
+<!-- == Fk '6.1. Address_JSon' == -->
+<path id='6.1. Address_JSon'  onmouseover="hghl(['6.1. Address_JSon','INSTANCE.6. Location Properties.6.1. Address'])" onmouseout="uhghl(['6.1. Address_JSon','INSTANCE.6. Location Properties.6.1. Address'])" transform='translate(8,0)' class='unhighlight' d='M 1024,256L 1104,256' >
+	<title>Fk JSon
+6.1. Address ref 6. Location Properties (  )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#src1u)' marker-end='url(#arrow)'  class='dotted '  d='M 1024,256L 1104,256' ><title>Fk JSon
+6.1. Address ref 6. Location Properties (  )</title></path>
+<text x='1033' y='251' transform='rotate(0 1033,251)' class='relName'>Obj</text>
+<!-- == Fk '6.3. GPS Coordinates_JSon' == -->
+<path id='6.3. GPS Coordinates_JSon'  onmouseover="hghl(['6.3. GPS Coordinates_JSon','INSTANCE.6. Location Properties.6.3. GPS Coordinates'])" onmouseout="uhghl(['6.3. GPS Coordinates_JSon','INSTANCE.6. Location Properties.6.3. GPS Coordinates'])" transform='translate(8,0)' class='unhighlight' d='M 1136,160L 1136,240' >
+	<title>Fk JSon
+6.3. GPS Coordinates ref 6. Location Properties (  )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#src1u)' marker-end='url(#arrow)'  class='dotted '  d='M 1136,160L 1136,240' ><title>Fk JSon
+6.3. GPS Coordinates ref 6. Location Properties (  )</title></path>
+<text x='1148' y='161' transform='rotate(90 1148,161)' class='relName'>Obj</text>
+<!-- == Fk '6.5. What 3 Words sub-properties_JSon' == -->
+<path id='6.5. What 3 Words sub-properties_JSon'  onmouseover="hghl(['6.5. What 3 Words sub-properties_JSon','INSTANCE.6. Location Properties.6.5. What 3 Words sub-properties'])" onmouseout="uhghl(['6.5. What 3 Words sub-properties_JSon','INSTANCE.6. Location Properties.6.5. What 3 Words sub-properties'])" transform='translate(8,0)' class='unhighlight' d='M 1472,160L 1472,216Q 1472,224 1464,224L 1352,224Q 1344,224 1344,232L 1344,240' >
+	<title>Fk JSon
+6.5. What 3 Words sub-properties ref 6. Location Properties (  )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#src1u)' marker-end='url(#arrow)'  class='dotted '  d='M 1472,160L 1472,216Q 1472,224 1464,224L 1352,224Q 1344,224 1344,232L 1344,240' ><title>Fk JSon
+6.5. What 3 Words sub-properties ref 6. Location Properties (  )</title></path>
+<text x='1484' y='161' transform='rotate(90 1484,161)' class='relName'>Obj</text>
+<!-- == Fk '7. Equipment Properties_fk_equipment_location' == -->
+<path id='7. Equipment Properties_fk_equipment_location'  onmouseover="hghl(['7. Equipment Properties_fk_equipment_location','INSTANCE.6. Location Properties.6.1. Address'])" onmouseout="uhghl(['7. Equipment Properties_fk_equipment_location','INSTANCE.6. Location Properties.6.1. Address'])" transform='translate(8,0)' class='unhighlight' d='M 1136,448L 1136,368' >
+	<title>Fk fk_equipment_location
+7. Equipment Properties ref 6. Location Properties ( - -&gt; 6.1. Address )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#src0u)' marker-end='url(#dest0u)'  class='dotted virtual'  d='M 1136,448L 1136,368' ><title>Fk fk_equipment_location
+7. Equipment Properties ref 6. Location Properties ( - -&gt; 6.1. Address )</title></path>
+<text x='1139' y='446' transform='rotate(270 1139,446)' class='relName'>-</text>
+<!-- == Fk '7.20. Defined sub-properties _fk_7.20. defined sub-properties ' == -->
+<path id='7.20. Defined sub-properties _fk_7.20. defined sub-properties '  onmouseover="hghl(['7.20. Defined sub-properties _fk_7.20. defined sub-properties '])" onmouseout="uhghl(['7.20. Defined sub-properties _fk_7.20. defined sub-properties '])" transform='translate(8,0)' class='unhighlight' d='M 1136,896L 1136,816' >
+	<title>Fk fk_7.20. defined sub-properties 
+7.20. Defined sub-properties  ref 7. Equipment Properties (  )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#src1)' marker-end='url(#dest1u)'  class='virtual'  d='M 1136,896L 1136,816' ><title>Fk fk_7.20. defined sub-properties 
+7.20. Defined sub-properties  ref 7. Equipment Properties (  )</title></path>
+<text x='1139' y='894' transform='rotate(270 1139,894)' class='relName'></text>
+<!-- == Fk '8. Materials Properties_fk_8. materials properties' == -->
+<path id='8. Materials Properties_fk_8. materials properties'  onmouseover="hghl(['8. Materials Properties_fk_8. materials properties'])" onmouseout="uhghl(['8. Materials Properties_fk_8. materials properties'])" transform='translate(8,0)' class='unhighlight' d='M 1440,336L 1400,336Q 1392,336 1392,344L 1392,472Q 1392,480 1384,480L 1360,480' >
+	<title>Fk fk_8. materials properties
+8. Materials Properties ref 7. Equipment Properties (  )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#src1)' marker-end='url(#dest1u)'  class='virtual'  d='M 1440,336L 1400,336Q 1392,336 1392,344L 1392,472Q 1392,480 1384,480L 1360,480' ><title>Fk fk_8. materials properties
+8. Materials Properties ref 7. Equipment Properties (  )</title></path>
+<text x='1449' y='331' transform='rotate(0 1449,331)' class='relName'></text>
+<!-- == Fk '8.5.1. Plastics_fk_8.5.1. plastics' == -->
+<path id='8.5.1. Plastics_fk_8.5.1. plastics'  onmouseover="hghl(['8.5.1. Plastics_fk_8.5.1. plastics'])" onmouseout="uhghl(['8.5.1. Plastics_fk_8.5.1. plastics'])" transform='translate(8,0)' class='unhighlight' d='M 672,448L 672,392Q 672,384 680,384L 1464,384Q 1472,384 1472,376L 1472,368' >
+	<title>Fk fk_8.5.1. plastics
+8.5.1. Plastics ref 8. Materials Properties (  )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#src1)' marker-end='url(#dest1u)'  class='virtual'  d='M 672,448L 672,392Q 672,384 680,384L 1464,384Q 1472,384 1472,376L 1472,368' ><title>Fk fk_8.5.1. plastics
+8.5.1. Plastics ref 8. Materials Properties (  )</title></path>
+<text x='675' y='446' transform='rotate(270 675,446)' class='relName'></text>
+<!-- == Fk '8.5.2. Metals_fk_8.5.2. metals' == -->
+<path id='8.5.2. Metals_fk_8.5.2. metals'  onmouseover="hghl(['8.5.2. Metals_fk_8.5.2. metals'])" onmouseout="uhghl(['8.5.2. Metals_fk_8.5.2. metals'])" transform='translate(8,0)' class='unhighlight' d='M 448,480L 448,408Q 448,400 456,400L 1480,400Q 1488,400 1488,392L 1488,368' >
+	<title>Fk fk_8.5.2. metals
+8.5.2. Metals ref 8. Materials Properties (  )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#src1)' marker-end='url(#dest1u)'  class='virtual'  d='M 448,480L 448,408Q 448,400 456,400L 1480,400Q 1488,400 1488,392L 1488,368' ><title>Fk fk_8.5.2. metals
+8.5.2. Metals ref 8. Materials Properties (  )</title></path>
+<text x='451' y='478' transform='rotate(270 451,478)' class='relName'></text>
+<!-- == Fk '8.5.3. Wood Products_fk_8.5.3. wood products' == -->
+<path id='8.5.3. Wood Products_fk_8.5.3. wood products'  onmouseover="hghl(['8.5.3. Wood Products_fk_8.5.3. wood products'])" onmouseout="uhghl(['8.5.3. Wood Products_fk_8.5.3. wood products'])" transform='translate(8,0)' class='unhighlight' d='M 448,256L 448,184Q 448,176 456,176L 1416,176Q 1424,176 1424,184L 1424,248Q 1424,256 1432,256L 1440,256' >
+	<title>Fk fk_8.5.3. wood products
+8.5.3. Wood Products ref 8. Materials Properties (  )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#src1)' marker-end='url(#dest1u)'  class='virtual'  d='M 448,256L 448,184Q 448,176 456,176L 1416,176Q 1424,176 1424,184L 1424,248Q 1424,256 1432,256L 1440,256' ><title>Fk fk_8.5.3. wood products
+8.5.3. Wood Products ref 8. Materials Properties (  )</title></path>
+<text x='451' y='254' transform='rotate(270 451,254)' class='relName'></text>
+<!-- == Fk '8.5.4. Elastomers_fk_8.5.4. elastomers' == -->
+<path id='8.5.4. Elastomers_fk_8.5.4. elastomers'  onmouseover="hghl(['8.5.4. Elastomers_fk_8.5.4. elastomers'])" onmouseout="uhghl(['8.5.4. Elastomers_fk_8.5.4. elastomers'])" transform='translate(8,0)' class='unhighlight' d='M 688,352L 888,352Q 896,352 896,360L 896,408Q 896,416 904,416L 1496,416Q 1504,416 1504,408L 1504,368' >
+	<title>Fk fk_8.5.4. elastomers
+8.5.4. Elastomers ref 8. Materials Properties (  )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#src1)' marker-end='url(#dest1u)'  class='virtual'  d='M 688,352L 888,352Q 896,352 896,360L 896,408Q 896,416 904,416L 1496,416Q 1504,416 1504,408L 1504,368' ><title>Fk fk_8.5.4. elastomers
+8.5.4. Elastomers ref 8. Materials Properties (  )</title></path>
+<text x='697' y='347' transform='rotate(0 697,347)' class='relName'></text>
+<!-- == Fk '8.5.5. Ceramics_fk_8.5.5. ceramics' == -->
+<path id='8.5.5. Ceramics_fk_8.5.5. ceramics'  onmouseover="hghl(['8.5.5. Ceramics_fk_8.5.5. ceramics'])" onmouseout="uhghl(['8.5.5. Ceramics_fk_8.5.5. ceramics'])" transform='translate(8,0)' class='unhighlight' d='M 208,752L 208,712Q 208,704 216,704L 1080,704Q 1088,704 1088,696L 1088,440Q 1088,432 1096,432L 1512,432Q 1520,432 1520,424L 1520,368' >
+	<title>Fk fk_8.5.5. ceramics
+8.5.5. Ceramics ref 8. Materials Properties (  )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#src1)' marker-end='url(#dest1u)'  class='virtual'  d='M 208,752L 208,712Q 208,704 216,704L 1080,704Q 1088,704 1088,696L 1088,440Q 1088,432 1096,432L 1512,432Q 1520,432 1520,424L 1520,368' ><title>Fk fk_8.5.5. ceramics
+8.5.5. Ceramics ref 8. Materials Properties (  )</title></path>
+<text x='211' y='750' transform='rotate(270 211,750)' class='relName'></text>
+<!-- == Fk '8.5.6. Electronics_fk_8.5.6. electronics' == -->
+<path id='8.5.6. Electronics_fk_8.5.6. electronics'  onmouseover="hghl(['8.5.6. Electronics_fk_8.5.6. electronics'])" onmouseout="uhghl(['8.5.6. Electronics_fk_8.5.6. electronics'])" transform='translate(8,0)' class='unhighlight' d='M 208,576L 208,440Q 208,432 216,432L 1064,432Q 1072,432 1072,424L 1072,216Q 1072,208 1080,208L 1480,208Q 1488,208 1488,216L 1488,240' >
+	<title>Fk fk_8.5.6. electronics
+8.5.6. Electronics ref 8. Materials Properties (  )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#src1)' marker-end='url(#dest1u)'  class='virtual'  d='M 208,576L 208,440Q 208,432 216,432L 1064,432Q 1072,432 1072,424L 1072,216Q 1072,208 1080,208L 1480,208Q 1488,208 1488,216L 1488,240' ><title>Fk fk_8.5.6. electronics
+8.5.6. Electronics ref 8. Materials Properties (  )</title></path>
+<text x='211' y='574' transform='rotate(270 211,574)' class='relName'></text>
+<!-- == Fk '8.5.7. Others_fk_8.5.7. others' == -->
+<path id='8.5.7. Others_fk_8.5.7. others'  onmouseover="hghl(['8.5.7. Others_fk_8.5.7. others'])" onmouseout="uhghl(['8.5.7. Others_fk_8.5.7. others'])" transform='translate(8,0)' class='unhighlight' d='M 208,128L 208,24Q 208,16 216,16L 1400,16Q 1408,16 1408,24L 1408,264Q 1408,272 1416,272L 1440,272' >
+	<title>Fk fk_8.5.7. others
+8.5.7. Others ref 8. Materials Properties (  )</title>
+</path>
+<path transform='translate(8,0)' marker-start='url(#src1)' marker-end='url(#dest1u)'  class='virtual'  d='M 208,128L 208,24Q 208,16 216,16L 1400,16Q 1408,16 1408,24L 1408,264Q 1408,272 1416,272L 1440,272' ><title>Fk fk_8.5.7. others
+8.5.7. Others ref 8. Materials Properties (  )</title></path>
+<text x='211' y='126' transform='rotate(270 211,126)' class='relName'></text>
+<!-- == Table '4. Manufacturing Facility Properties' == -->
+<rect id='depict_INSTANCE.4. Manufacturing Facility Properties' class='entity' style='stroke:none;' x='1456' y='456' width='240' height='464' rx='4' ry='4' />
+<path d='M 1456 484 L 1456 460 Q 1456 456 1460 456 L 1692 456 Q 1696 456 1696 460 L 1696 484 L1456 484 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='1456' y='456' width='240' height='464' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#INSTANCE.4. Manufacturing Facility Properties'><text x='1467' y='475' >4. Manufacturing Facility Properties</text><title>Entity INSTANCE.4. Manufacturing Facility Properties</title></a>
+  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.1. name'><text id='INSTANCE.4. Manufacturing Facility Properties.4.1. name' x='1475' y='503'>4.1. name</text><title>4.1. name
+varchar(30)</title></a>
+<text x='1693' y='500' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.2 location'><text id='INSTANCE.4. Manufacturing Facility Properties.4.2 location' x='1475' y='519'>4.2 location</text><title>4.2 location
+varchar(30)</title></a>
+<text x='1693' y='516' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.3 owner'><text id='INSTANCE.4. Manufacturing Facility Properties.4.3 owner' x='1475' y='535'>4.3 owner</text><title>4.3 owner
+varchar(20)</title></a>
+<text x='1693' y='532' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.4 contact'><text id='INSTANCE.4. Manufacturing Facility Properties.4.4 contact' x='1475' y='551'>4.4 contact</text><title>4.4 contact
+varchar(20)</title></a>
+<text x='1693' y='548' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.5 affiliation'><text id='INSTANCE.4. Manufacturing Facility Properties.4.5 affiliation' x='1475' y='567'>4.5 affiliation</text><title>4.5 affiliation
+varchar(20)</title></a>
+<text x='1693' y='564' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.6 facility_status'><text id='INSTANCE.4. Manufacturing Facility Properties.4.6 facility_status' x='1475' y='583'>4.6 facility_status</text><title>4.6 facility_status
+varchar(20)</title></a>
+<text x='1693' y='580' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.7 opening_hours'><text id='INSTANCE.4. Manufacturing Facility Properties.4.7 opening_hours' x='1475' y='599'>4.7 opening_hours</text><title>4.7 opening_hours
+datetime</title></a>
+<text x='1693' y='596' text-anchor='end' class='colType'>d</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.8 description'><text id='INSTANCE.4. Manufacturing Facility Properties.4.8 description' x='1475' y='615'>4.8 description</text><title>4.8 description
+text</title></a>
+<text x='1693' y='612' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.9 data_founded'><text id='INSTANCE.4. Manufacturing Facility Properties.4.9 data_founded' x='1475' y='631'>4.9 data_founded</text><title>4.9 data_founded
+date</title></a>
+<text x='1693' y='628' text-anchor='end' class='colType'>d</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.10 access_type'><text id='INSTANCE.4. Manufacturing Facility Properties.4.10 access_type' x='1475' y='647'>4.10 access_type</text><title>4.10 access_type
+text</title></a>
+<text x='1693' y='644' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.11 wheelchair_accessibility'><text id='INSTANCE.4. Manufacturing Facility Properties.4.11 wheelchair_accessibility' x='1475' y='663'>4.11 wheelchair_accessibility</text><title>4.11 wheelchair_accessibility
+text</title></a>
+<text x='1693' y='660' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.12 equipment'><text id='INSTANCE.4. Manufacturing Facility Properties.4.12 equipment' x='1475' y='679'>4.12 equipment</text><title>4.12 equipment
+text</title></a>
+<text x='1693' y='676' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.13 manufacturing_process'><text id='INSTANCE.4. Manufacturing Facility Properties.4.13 manufacturing_process' x='1475' y='695'>4.13 manufacturing_process</text><title>4.13 manufacturing_process
+text</title></a>
+<text x='1693' y='692' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.14 typical_batch_size'><text id='INSTANCE.4. Manufacturing Facility Properties.4.14 typical_batch_size' x='1475' y='711'>4.14 typical_batch_size</text><title>4.14 typical_batch_size
+text</title></a>
+<text x='1693' y='708' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.15 size_floor_size'><text id='INSTANCE.4. Manufacturing Facility Properties.4.15 size_floor_size' x='1475' y='727'>4.15 size_floor_size</text><title>4.15 size_floor_size
+text</title></a>
+<text x='1693' y='724' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.16 storage_capacity'><text id='INSTANCE.4. Manufacturing Facility Properties.4.16 storage_capacity' x='1475' y='743'>4.16 storage_capacity</text><title>4.16 storage_capacity
+text</title></a>
+<text x='1693' y='740' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.17 typical_materials'><text id='INSTANCE.4. Manufacturing Facility Properties.4.17 typical_materials' x='1475' y='759'>4.17 typical_materials</text><title>4.17 typical_materials
+text</title></a>
+<text x='1693' y='756' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.18 certifications'><text id='INSTANCE.4. Manufacturing Facility Properties.4.18 certifications' x='1475' y='775'>4.18 certifications</text><title>4.18 certifications
+text</title></a>
+<text x='1693' y='772' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.19 backup_generator'><text id='INSTANCE.4. Manufacturing Facility Properties.4.19 backup_generator' x='1475' y='791'>4.19 backup_generator</text><title>4.19 backup_generator
+boolean</title></a>
+<text x='1693' y='788' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.20 uninterrupted_power_supply'><text id='INSTANCE.4. Manufacturing Facility Properties.4.20 uninterrupted_power_supply' x='1475' y='807'>4.20 uninterrupted_power_supply</text><title>4.20 uninterrupted_power_supply
+boolean</title></a>
+<text x='1693' y='804' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.21 road_access'><text id='INSTANCE.4. Manufacturing Facility Properties.4.21 road_access' x='1475' y='823'>4.21 road_access</text><title>4.21 road_access
+boolean</title></a>
+<text x='1693' y='820' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.22 loading_dock'><text id='INSTANCE.4. Manufacturing Facility Properties.4.22 loading_dock' x='1475' y='839'>4.22 loading_dock</text><title>4.22 loading_dock
+boolean</title></a>
+<text x='1693' y='836' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.23 maintenance_schedule'><text id='INSTANCE.4. Manufacturing Facility Properties.4.23 maintenance_schedule' x='1475' y='855'>4.23 maintenance_schedule</text><title>4.23 maintenance_schedule
+text</title></a>
+<text x='1693' y='852' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.24 typical_products'><text id='INSTANCE.4. Manufacturing Facility Properties.4.24 typical_products' x='1475' y='871'>4.24 typical_products</text><title>4.24 typical_products
+text</title></a>
+<text x='1693' y='868' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.25 partner_funder'><text id='INSTANCE.4. Manufacturing Facility Properties.4.25 partner_funder' x='1475' y='887'>4.25 partner_funder</text><title>4.25 partner_funder
+varchar(20)</title></a>
+<text x='1693' y='884' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4. Manufacturing Facility Properties_4.26 customer_reviews'><text id='INSTANCE.4. Manufacturing Facility Properties.4.26 customer_reviews' x='1475' y='903'>4.26 customer_reviews</text><title>4.26 customer_reviews
+text</title></a>
+<text x='1693' y='900' text-anchor='end' class='colType'>t</text>
+<!-- == Table '4.27. Circular Economy sub-properties' == -->
+<rect id='depict_INSTANCE.4.27. Circular Economy sub-properties' class='entity' style='stroke:none;' x='1792' y='456' width='240' height='96' rx='4' ry='4' />
+<path d='M 1792 484 L 1792 460 Q 1792 456 1796 456 L 2028 456 Q 2032 456 2032 460 L 2032 484 L1792 484 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='1792' y='456' width='240' height='96' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#INSTANCE.4.27. Circular Economy sub-properties'><text x='1796' y='475' >4.27. Circular Economy sub-properties</text><title>Entity INSTANCE.4.27. Circular Economy sub-properties</title></a>
+  <a xlink:href='#INSTANCE.4.27. Circular Economy sub-properties_4.27.1. Circular Economy'><text id='INSTANCE.4.27. Circular Economy sub-properties.4.27.1. Circular Economy' x='1811' y='503'>4.27.1. Circular Economy</text><title>4.27.1. Circular Economy
+boolean</title></a>
+<text x='2029' y='500' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.4.27. Circular Economy sub-properties_4.27.2. Description'><text id='INSTANCE.4.27. Circular Economy sub-properties.4.27.2. Description' x='1811' y='519'>4.27.2. Description</text><title>4.27.2. Description
+text</title></a>
+<text x='2029' y='516' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4.27. Circular Economy sub-properties_4.27.3. By-products'><text id='INSTANCE.4.27. Circular Economy sub-properties.4.27.3. By-products' x='1811' y='535'>4.27.3. By-products</text><title>4.27.3. By-products
+relationship</title></a>
+
+<!-- == Table '4.28. Human Capacity sub-properties' == -->
+<rect id='depict_INSTANCE.4.28. Human Capacity sub-properties' class='entity' style='stroke:none;' x='1792' y='840' width='240' height='80' rx='4' ry='4' />
+<path d='M 1792 868 L 1792 844 Q 1792 840 1796 840 L 2028 840 Q 2032 840 2032 844 L 2032 868 L1792 868 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='1792' y='840' width='240' height='80' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#INSTANCE.4.28. Human Capacity sub-properties'><text x='1800' y='859' >4.28. Human Capacity sub-properties</text><title>Entity INSTANCE.4.28. Human Capacity sub-properties</title></a>
+  <a xlink:href='#INSTANCE.4.28. Human Capacity sub-properties_4.28.1. Headcount'><text id='INSTANCE.4.28. Human Capacity sub-properties.4.28.1. Headcount' x='1811' y='887'>4.28.1. Headcount</text><title>4.28.1. Headcount
+int</title></a>
+<text x='2029' y='884' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.4.28. Human Capacity sub-properties_4.28.2. Maker (WIP)'><text id='INSTANCE.4.28. Human Capacity sub-properties.4.28.2. Maker (WIP)' x='1811' y='903'>4.28.2. Maker (WIP)</text><title>4.28.2. Maker (WIP)
+text</title></a>
+<text x='2029' y='900' text-anchor='end' class='colType'>t</text>
+<!-- == Table '4.29. Innovation Space sub-properties' == -->
+<rect id='depict_INSTANCE.4.29. Innovation Space sub-properties' class='entity' style='stroke:none;' x='1792' y='1016' width='240' height='128' rx='4' ry='4' />
+<path d='M 1792 1044 L 1792 1020 Q 1792 1016 1796 1016 L 2028 1016 Q 2032 1016 2032 1020 L 2032 1044 L1792 1044 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='1792' y='1016' width='240' height='128' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#INSTANCE.4.29. Innovation Space sub-properties'><text x='1798' y='1035' >4.29. Innovation Space sub-properties</text><title>Entity INSTANCE.4.29. Innovation Space sub-properties</title></a>
+  <a xlink:href='#INSTANCE.4.29. Innovation Space sub-properties_4.29.1. Staff'><text id='INSTANCE.4.29. Innovation Space sub-properties.4.29.1. Staff' x='1811' y='1063'>4.29.1. Staff</text><title>4.29.1. Staff
+int</title></a>
+<text x='2029' y='1060' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.4.29. Innovation Space sub-properties_4.29.2. Learning Resources'><text id='INSTANCE.4.29. Innovation Space sub-properties.4.29.2. Learning Resources' x='1811' y='1079'>4.29.2. Learning Resources</text><title>4.29.2. Learning Resources
+text</title></a>
+<text x='2029' y='1076' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4.29. Innovation Space sub-properties_4.29.3. Services'><text id='INSTANCE.4.29. Innovation Space sub-properties.4.29.3. Services' x='1811' y='1095'>4.29.3. Services</text><title>4.29.3. Services
+text</title></a>
+<text x='2029' y='1092' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4.29. Innovation Space sub-properties_4.29.4. Footfall'><text id='INSTANCE.4.29. Innovation Space sub-properties.4.29.4. Footfall' x='1811' y='1111'>4.29.4. Footfall</text><title>4.29.4. Footfall
+text</title></a>
+<text x='2029' y='1108' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.4.29. Innovation Space sub-properties_4.29.5. Residencies'><text id='INSTANCE.4.29. Innovation Space sub-properties.4.29.5. Residencies' x='1811' y='1127'>4.29.5. Residencies</text><title>4.29.5. Residencies
+boolean</title></a>
+<text x='2029' y='1124' text-anchor='end' class='colType'>b</text>
+<!-- == Table '5. Agent Properties' == -->
+<rect id='depict_INSTANCE.5. Agent Properties' class='entity' style='stroke:none;' x='784' y='456' width='240' height='208' rx='4' ry='4' />
+<path d='M 784 484 L 784 460 Q 784 456 788 456 L 1020 456 Q 1024 456 1024 460 L 1024 484 L784 484 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='784' y='456' width='240' height='208' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#INSTANCE.5. Agent Properties'><text x='844' y='475' >5. Agent Properties</text><title>Entity INSTANCE.5. Agent Properties</title></a>
+  <a xlink:href='#INSTANCE.5. Agent Properties_5.1 name'><text id='INSTANCE.5. Agent Properties.5.1 name' x='803' y='503'>5.1 name</text><title>5.1 name
+varchar(30)
+The name of the Agent. Note: This could be a name of a person or an organisation.</title></a>
+<text x='1021' y='500' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.5. Agent Properties_5.2 location'><text id='INSTANCE.5. Agent Properties.5.2 location' x='803' y='519'>5.2 location</text><title>5.2 location
+varchar(30)
+A Location. Uses the Location class.</title></a>
+<text x='1021' y='516' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.5. Agent Properties_5.3 contact_person'><text id='INSTANCE.5. Agent Properties.5.3 contact_person' x='803' y='535'>5.3 contact_person</text><title>5.3 contact_person
+varchar(30)
+An Agent who is the key point of contact for a manufacturing facility or organisation. Provide the name of the Agent.</title></a>
+<text x='1021' y='532' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.5. Agent Properties_5.4 bio'><text id='INSTANCE.5. Agent Properties.5.4 bio' x='803' y='551'>5.4 bio</text><title>5.4 bio
+text
+A description of a person or an organisation. Free text.</title></a>
+<text x='1021' y='548' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.5. Agent Properties_5.5 website'><text id='INSTANCE.5. Agent Properties.5.5 website' x='803' y='567'>5.5 website</text><title>5.5 website
+text
+Website address. Provide the relevant URL.</title></a>
+<text x='1021' y='564' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.5. Agent Properties_5.6 languages'><text id='INSTANCE.5. Agent Properties.5.6 languages' x='803' y='583'>5.6 languages</text><title>5.6 languages
+text
+Languages used by a person or an organisation. Format: ISO 639-2 or ISO 639-3, for example &#8220;en-gb&#8221;. Often manufacturing facilities may be able to provide services dealing in more than one language.</title></a>
+<text x='1021' y='580' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.5. Agent Properties_5.7 mailing_list'><text id='INSTANCE.5. Agent Properties.5.7 mailing_list' x='803' y='599'>5.7 mailing_list</text><title>5.7 mailing_list
+text
+Images / Media of a person, an organisation, or relating to the manufacturing facility.</title></a>
+<text x='1021' y='596' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.5. Agent Properties_5.8 images_media'><text id='INSTANCE.5. Agent Properties.5.8 images_media' x='803' y='615'>5.8 images_media</text><title>5.8 images_media
+text
+Mailing list for an organisation.</title></a>
+<text x='1021' y='612' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.5. Agent Properties_5.9 contact_subproperties'><text id='INSTANCE.5. Agent Properties.5.9 contact_subproperties' x='803' y='631' onmouseover="hghl(['5.9 contact_subproperties_JSon'])" onmouseout="uhghl(['5.9 contact_subproperties_JSon'])">5.9 contact_subproperties</text><title>5.9 contact_subproperties
+subtype
+Defined contact information.</title></a>
+  <a xlink:href='#INSTANCE.5. Agent Properties_5.10 social_media_subproperties'><text id='INSTANCE.5. Agent Properties.5.10 social_media_subproperties' x='803' y='647' onmouseover="hghl(['5.10 social_media_subproperties_JSon'])" onmouseout="uhghl(['5.10 social_media_subproperties_JSon'])">5.10 social_media_subproperties</text><title>5.10 social_media_subproperties
+subtype</title></a>
+
+<!-- == Table '5.10 social_media_subproperties' == -->
+<rect id='depict_5.10 social_media_subproperties' class='entity' style='stroke:none;' x='784' y='760' width='208' height='112' rx='4' ry='4' />
+<path d='M 784 788 L 784 764 Q 784 760 788 760 L 988 760 Q 992 760 992 764 L 992 788 L784 788 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='784' y='760' width='208' height='112' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#5.10 social_media_subproperties'><text x='789' y='779' >5.10 social_media_subproperties</text><title>Sub-document 5.10 social_media_subproperties</title></a>
+  <a xlink:href='#5.10 social_media_subproperties_5.10.1 facebook'><text id='5.10 social_media_subproperties.5.10.1 facebook' x='803' y='807'>5.10.1 facebook</text><title>5.10.1 facebook
+varchar(20)
+...</title></a>
+<text x='989' y='804' text-anchor='end' class='colType'>t</text>  <a xlink:href='#5.10 social_media_subproperties_5.10.2 twitter'><text id='5.10 social_media_subproperties.5.10.2 twitter' x='803' y='823'>5.10.2 twitter</text><title>5.10.2 twitter
+varchar(20)
+...</title></a>
+<text x='989' y='820' text-anchor='end' class='colType'>t</text>  <a xlink:href='#5.10 social_media_subproperties_5.10.3 instagram'><text id='5.10 social_media_subproperties.5.10.3 instagram' x='803' y='839'>5.10.3 instagram</text><title>5.10.3 instagram
+varchar(20)
+...</title></a>
+<text x='989' y='836' text-anchor='end' class='colType'>t</text>  <a xlink:href='#5.10 social_media_subproperties_5.10.4 other_urls'><text id='5.10 social_media_subproperties.5.10.4 other_urls' x='803' y='855'>5.10.4 other_urls</text><title>5.10.4 other_urls
+varchar(20)
+...</title></a>
+<text x='989' y='852' text-anchor='end' class='colType'>t</text>
+<!-- == Table '5.9 contact_subproperties' == -->
+<rect id='depict_5.9 contact_subproperties' class='entity' style='stroke:none;' x='512' y='760' width='176' height='128' rx='4' ry='4' />
+<path d='M 512 788 L 512 764 Q 512 760 516 760 L 684 760 Q 688 760 688 764 L 688 788 L512 788 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='512' y='760' width='176' height='128' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#5.9 contact_subproperties'><text x='520' y='779' >5.9 contact_subproperties</text><title>Sub-document 5.9 contact_subproperties
+Defined contact information.</title></a>
+  <a xlink:href='#5.9 contact_subproperties_5.9.1 landline'><text id='5.9 contact_subproperties.5.9.1 landline' x='531' y='807'>5.9.1 landline</text><title>5.9.1 landline
+numeric(20)
+A landline telephone number to contact the facility, person or organisation. Provide the telephone number.</title></a>
+<text x='685' y='804' text-anchor='end' class='colType'>#</text>  <a xlink:href='#5.9 contact_subproperties_5.9.2 mobile'><text id='5.9 contact_subproperties.5.9.2 mobile' x='531' y='823'>5.9.2 mobile</text><title>5.9.2 mobile
+numeric(20)
+A mobile telephone number to contact the facility, person or organisation. Provide the telephone number.</title></a>
+<text x='685' y='820' text-anchor='end' class='colType'>#</text>  <a xlink:href='#5.9 contact_subproperties_5.9.3 fax'><text id='5.9 contact_subproperties.5.9.3 fax' x='531' y='839'>5.9.3 fax</text><title>5.9.3 fax
+numeric(20)
+A fax number to contact the facility, person or organisation. Provide the fax number.</title></a>
+<text x='685' y='836' text-anchor='end' class='colType'>#</text>  <a xlink:href='#5.9 contact_subproperties_5.9.4 email'><text id='5.9 contact_subproperties.5.9.4 email' x='531' y='855'>5.9.4 email</text><title>5.9.4 email
+varchar(20)
+...</title></a>
+<text x='685' y='852' text-anchor='end' class='colType'>t</text>  <a xlink:href='#5.9 contact_subproperties_5.9.5 whatsapp'><text id='5.9 contact_subproperties.5.9.5 whatsapp' x='531' y='871'>5.9.5 whatsapp</text><title>5.9.5 whatsapp
+numeric(20)
+...</title></a>
+<text x='685' y='868' text-anchor='end' class='colType'>#</text>
+<!-- == Table '6. Location Properties' == -->
+<rect id='depict_INSTANCE.6. Location Properties' class='entity' style='stroke:none;' x='1120' y='248' width='240' height='112' rx='4' ry='4' />
+<path d='M 1120 276 L 1120 252 Q 1120 248 1124 248 L 1356 248 Q 1360 248 1360 252 L 1360 276 L1120 276 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='1120' y='248' width='240' height='112' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#INSTANCE.6. Location Properties'><text x='1171' y='267' >6. Location Properties</text><title>Entity INSTANCE.6. Location Properties</title></a>
+  <a xlink:href='#INSTANCE.6. Location Properties_6.1. Address'><text id='INSTANCE.6. Location Properties.6.1. Address' x='1139' y='295' onmouseover="hghl(['6.1. Address_JSon','7. Equipment Properties_fk_equipment_location','4. Manufacturing Facility Properties_fk_facility_location','6.1. Address_JSon'])" onmouseout="uhghl(['6.1. Address_JSon','7. Equipment Properties_fk_equipment_location','4. Manufacturing Facility Properties_fk_facility_location','6.1. Address_JSon'])">6.1. Address</text><title>6.1. Address
+subtype</title></a>
+  <a xlink:href='#INSTANCE.6. Location Properties_6.3. GPS Coordinates'><text id='INSTANCE.6. Location Properties.6.3. GPS Coordinates' x='1139' y='311' onmouseover="hghl(['6.3. GPS Coordinates_JSon','6.3. GPS Coordinates_JSon'])" onmouseout="uhghl(['6.3. GPS Coordinates_JSon','6.3. GPS Coordinates_JSon'])">6.3. GPS Coordinates</text><title>6.3. GPS Coordinates
+subtype</title></a>
+  <a xlink:href='#INSTANCE.6. Location Properties_6.4. Directions'><text id='INSTANCE.6. Location Properties.6.4. Directions' x='1139' y='327' onmouseover="hghl(['6.4. Directions_JSon'])" onmouseout="uhghl(['6.4. Directions_JSon'])">6.4. Directions</text><title>6.4. Directions
+subtype</title></a>
+  <a xlink:href='#INSTANCE.6. Location Properties_6.5. What 3 Words sub-properties'><text id='INSTANCE.6. Location Properties.6.5. What 3 Words sub-properties' x='1139' y='343' onmouseover="hghl(['6.5. What 3 Words sub-properties_JSon','6.5. What 3 Words sub-properties_JSon','6.5. What 3 Words sub-properties_JSon'])" onmouseout="uhghl(['6.5. What 3 Words sub-properties_JSon','6.5. What 3 Words sub-properties_JSon','6.5. What 3 Words sub-properties_JSon'])">6.5. What 3 Words sub-properties</text><title>6.5. What 3 Words sub-properties
+subtype</title></a>
+
+<!-- == Table '6.1. Address' == -->
+<rect id='depict_6.1. Address' class='entity' style='stroke:none;' x='928' y='200' width='96' height='160' rx='4' ry='4' />
+<path d='M 928 228 L 928 204 Q 928 200 932 200 L 1020 200 Q 1024 200 1024 204 L 1024 228 L928 228 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='928' y='200' width='96' height='160' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#6.1. Address'><text x='936' y='219' >6.1. Address</text><title>Sub-document 6.1. Address</title></a>
+  <a xlink:href='#6.1. Address_number'><text id='6.1. Address.number' x='947' y='247'>number</text><title>number
+decimal</title></a>
+<text x='1021' y='244' text-anchor='end' class='colType'>#</text>  <a xlink:href='#6.1. Address_street'><text id='6.1. Address.street' x='947' y='263'>street</text><title>street
+varchar(40)</title></a>
+<text x='1021' y='260' text-anchor='end' class='colType'>t</text>  <a xlink:href='#6.1. Address_district'><text id='6.1. Address.district' x='947' y='279'>district</text><title>district
+subtype</title></a>
+  <a xlink:href='#6.1. Address_city'><text id='6.1. Address.city' x='947' y='295'>city</text><title>city
+subtype</title></a>
+  <a xlink:href='#6.1. Address_region'><text id='6.1. Address.region' x='947' y='311'>region</text><title>region
+subtype</title></a>
+  <a xlink:href='#6.1. Address_country'><text id='6.1. Address.country' x='947' y='327'>country</text><title>country
+char(2)</title></a>
+<text x='1021' y='324' text-anchor='end' class='colType'>c</text>  <a xlink:href='#6.1. Address_postcode'><text id='6.1. Address.postcode' x='947' y='343'>postcode</text><title>postcode
+varchar(10)</title></a>
+<text x='1021' y='340' text-anchor='end' class='colType'>t</text>
+<!-- == Table '6.3. GPS Coordinates' == -->
+<rect id='depict_6.3. GPS Coordinates' class='entity' style='stroke:none;' x='1120' y='40' width='144' height='112' rx='4' ry='4' />
+<path d='M 1120 68 L 1120 44 Q 1120 40 1124 40 L 1260 40 Q 1264 40 1264 44 L 1264 68 L1120 68 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='1120' y='40' width='144' height='112' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#6.3. GPS Coordinates'><text x='1127' y='59' >6.3. GPS Coordinates</text><title>Sub-document 6.3. GPS Coordinates</title></a>
+  <a xlink:href='#6.3. GPS Coordinates_latitude'><text id='6.3. GPS Coordinates.latitude' x='1139' y='87'>latitude</text><title>latitude
+decimal</title></a>
+<text x='1261' y='84' text-anchor='end' class='colType'>#</text>  <a xlink:href='#6.3. GPS Coordinates_longitude'><text id='6.3. GPS Coordinates.longitude' x='1139' y='103'>longitude</text><title>longitude
+decimal</title></a>
+<text x='1261' y='100' text-anchor='end' class='colType'>#</text>  <a xlink:href='#6.3. GPS Coordinates_altitude'><text id='6.3. GPS Coordinates.altitude' x='1139' y='119'>altitude</text><title>altitude
+decimal</title></a>
+<text x='1261' y='116' text-anchor='end' class='colType'>#</text>  <a xlink:href='#6.3. GPS Coordinates_precision'><text id='6.3. GPS Coordinates.precision' x='1139' y='135'>precision</text><title>precision
+decimal</title></a>
+<text x='1261' y='132' text-anchor='end' class='colType'>#</text>
+<!-- == Table '6.5. What 3 Words sub-properties' == -->
+<rect id='depict_6.5. What 3 Words sub-properties' class='entity' style='stroke:none;' x='1456' y='72' width='208' height='80' rx='4' ry='4' />
+<path d='M 1456 100 L 1456 76 Q 1456 72 1460 72 L 1660 72 Q 1664 72 1664 76 L 1664 100 L1456 100 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='1456' y='72' width='208' height='80' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#6.5. What 3 Words sub-properties'><text x='1458' y='91' >6.5. What 3 Words sub-properties</text><title>Sub-document 6.5. What 3 Words sub-properties</title></a>
+  <a xlink:href='#6.5. What 3 Words sub-properties_6.4.1. What 3 Words'><text id='6.5. What 3 Words sub-properties.6.4.1. What 3 Words' x='1475' y='119'>6.4.1. What 3 Words</text><title>6.4.1. What 3 Words
+varchar(20)</title></a>
+<text x='1661' y='116' text-anchor='end' class='colType'>t</text>  <a xlink:href='#6.5. What 3 Words sub-properties_6.4.2. Language'><text id='6.5. What 3 Words sub-properties.6.4.2. Language' x='1475' y='135'>6.4.2. Language</text><title>6.4.2. Language
+varchar(6)</title></a>
+<text x='1661' y='132' text-anchor='end' class='colType'>t</text>
+<!-- == Table '7. Equipment Properties' == -->
+<rect id='depict_INSTANCE.7. Equipment Properties' class='entity' style='stroke:none;' x='1120' y='456' width='240' height='352' rx='4' ry='4' />
+<path d='M 1120 484 L 1120 460 Q 1120 456 1124 456 L 1356 456 Q 1360 456 1360 460 L 1360 484 L1120 484 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='1120' y='456' width='240' height='352' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#INSTANCE.7. Equipment Properties'><text x='1165' y='475' >7. Equipment Properties</text><title>Entity INSTANCE.7. Equipment Properties</title></a>
+  <a xlink:href='#INSTANCE.7. Equipment Properties_7.1 equipment_type'><text id='INSTANCE.7. Equipment Properties.7.1 equipment_type' x='1139' y='503'>7.1 equipment_type</text><title>7.1 equipment_type
+text
+Provide the Wikipedia URL for the relevant Equipment Type.</title></a>
+<text x='1357' y='500' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.7. Equipment Properties_7.2 manufacturing_process'><text id='INSTANCE.7. Equipment Properties.7.2 manufacturing_process' x='1139' y='519'>7.2 manufacturing_process</text><title>7.2 manufacturing_process
+text
+Manufacturing process the Equipment is capable of.</title></a>
+<text x='1357' y='516' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.7. Equipment Properties_7.3 make'><text id='INSTANCE.7. Equipment Properties.7.3 make' x='1139' y='535'>7.3 make</text><title>7.3 make
+text
+Make of the piece of equipment. Provide the make of the model. Provides detailed information about a piece of equipment/tool. For example, you can design generically for a 3D printer, or you can design for a specific make or model of 3D printer.</title></a>
+<text x='1357' y='532' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.7. Equipment Properties_7.4 model'><text id='INSTANCE.7. Equipment Properties.7.4 model' x='1139' y='551'>7.4 model</text><title>7.4 model
+text
+Provide the name of the model.</title></a>
+<text x='1357' y='548' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.7. Equipment Properties_7.5 serial_number'><text id='INSTANCE.7. Equipment Properties.7.5 serial_number' x='1139' y='567'>7.5 serial_number</text><title>7.5 serial_number
+text
+Serial number of the piece of Equipment.</title></a>
+<text x='1357' y='564' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.7. Equipment Properties_7.6 location'><text id='INSTANCE.7. Equipment Properties.7.6 location' x='1139' y='583'>7.6 location</text><title>7.6 location
+varchar(30)</title></a>
+<text x='1357' y='580' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.7. Equipment Properties_7.7 skills_required'><text id='INSTANCE.7. Equipment Properties.7.7 skills_required' x='1139' y='599'>7.7 skills_required</text><title>7.7 skills_required
+text</title></a>
+<text x='1357' y='596' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.7. Equipment Properties_7.8 condition'><text id='INSTANCE.7. Equipment Properties.7.8 condition' x='1139' y='615'>7.8 condition</text><title>7.8 condition
+text
+This provides a user with information surrounding the quality of a piece of equipment/tool, and whether it can complete the task they need it for.</title></a>
+<text x='1357' y='612' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.7. Equipment Properties_7.9 notes'><text id='INSTANCE.7. Equipment Properties.7.9 notes' x='1139' y='631'>7.9 notes</text><title>7.9 notes
+text</title></a>
+<text x='1357' y='628' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.7. Equipment Properties_7.10 owner'><text id='INSTANCE.7. Equipment Properties.7.10 owner' x='1139' y='647'>7.10 owner</text><title>7.10 owner
+text
+The owner of a piece of equipment.</title></a>
+<text x='1357' y='644' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.7. Equipment Properties_7.11 quantity'><text id='INSTANCE.7. Equipment Properties.7.11 quantity' x='1139' y='663'>7.11 quantity</text><title>7.11 quantity
+int
+Quantity of specific piece of equipment. This provides information surrounding the size and scale of a manufacturing facility and implicates batch size.</title></a>
+<text x='1357' y='660' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7. Equipment Properties_7.12 throughput'><text id='INSTANCE.7. Equipment Properties.7.12 throughput' x='1139' y='679'>7.12 throughput</text><title>7.12 throughput
+text
+ The throughput of the piece of equipment.</title></a>
+<text x='1357' y='676' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.7. Equipment Properties_7.13 power_rating'><text id='INSTANCE.7. Equipment Properties.7.13 power_rating' x='1139' y='695'>7.13 power_rating</text><title>7.13 power_rating
+int
+ The power rating of the piece of equipment. Unit: &quot;W&quot; (Watts?)</title></a>
+<text x='1357' y='692' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7. Equipment Properties_7.14 materials_worked'><text id='INSTANCE.7. Equipment Properties.7.14 materials_worked' x='1139' y='711'>7.14 materials_worked</text><title>7.14 materials_worked
+subtype</title></a>
+  <a xlink:href='#INSTANCE.7. Equipment Properties_7.15 maintenance_schedule'><text id='INSTANCE.7. Equipment Properties.7.15 maintenance_schedule' x='1139' y='727'>7.15 maintenance_schedule</text><title>7.15 maintenance_schedule
+text
+When the equipment was last maintained.</title></a>
+<text x='1357' y='724' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.7. Equipment Properties_7.16 usage_levels'><text id='INSTANCE.7. Equipment Properties.7.16 usage_levels' x='1139' y='743'>7.16 usage_levels</text><title>7.16 usage_levels
+text</title></a>
+<text x='1357' y='740' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.7. Equipment Properties_7.17 tolerance class'><text id='INSTANCE.7. Equipment Properties.7.17 tolerance class' x='1139' y='759'>7.17 tolerance class</text><title>7.17 tolerance class
+subtype</title></a>
+  <a xlink:href='#INSTANCE.7. Equipment Properties_7.18. Current Firmware'><text id='INSTANCE.7. Equipment Properties.7.18. Current Firmware' x='1139' y='775'>7.18. Current Firmware</text><title>7.18. Current Firmware
+text</title></a>
+<text x='1357' y='772' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.7. Equipment Properties_7.19. Uninterrupted Power Supply'><text id='INSTANCE.7. Equipment Properties.7.19. Uninterrupted Power Supply' x='1139' y='791'>7.19. Uninterrupted Power Supply</text><title>7.19. Uninterrupted Power Supply
+boolean</title></a>
+<text x='1357' y='788' text-anchor='end' class='colType'>b</text>
+<!-- == Table '7.20. Defined sub-properties ' == -->
+<rect id='depict_INSTANCE.7.20. Defined sub-properties ' class='entity' style='stroke:none;' x='1104' y='904' width='256' height='656' rx='4' ry='4' />
+<path d='M 1104 932 L 1104 908 Q 1104 904 1108 904 L 1356 904 Q 1360 904 1360 908 L 1360 932 L1104 932 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='1104' y='904' width='256' height='656' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#INSTANCE.7.20. Defined sub-properties '><text x='1142' y='923' >7.20. Defined sub-properties </text><title>Entity INSTANCE.7.20. Defined sub-properties </title></a>
+  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.1. Axes'><text id='INSTANCE.7.20. Defined sub-properties .7.20.1. Axes' x='1123' y='951'>7.20.1. Axes</text><title>7.20.1. Axes
+int</title></a>
+<text x='1357' y='948' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.2. Bed Size'><text id='INSTANCE.7.20. Defined sub-properties .7.20.2. Bed Size' x='1123' y='967'>7.20.2. Bed Size</text><title>7.20.2. Bed Size
+decimal</title></a>
+<text x='1357' y='964' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.3. Bending Length'><text id='INSTANCE.7.20. Defined sub-properties .7.20.3. Bending Length' x='1123' y='983'>7.20.3. Bending Length</text><title>7.20.3. Bending Length
+decimal</title></a>
+<text x='1357' y='980' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.4.Build Volume'><text id='INSTANCE.7.20. Defined sub-properties .7.20.4.Build Volume' x='1123' y='999'>7.20.4.Build Volume</text><title>7.20.4.Build Volume
+decimal</title></a>
+<text x='1357' y='996' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.5. Chuck Jaw Diameter'><text id='INSTANCE.7.20. Defined sub-properties .7.20.5. Chuck Jaw Diameter' x='1123' y='1015'>7.20.5. Chuck Jaw Diameter</text><title>7.20.5. Chuck Jaw Diameter
+decimal</title></a>
+<text x='1357' y='1012' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.6. Collet Size'><text id='INSTANCE.7.20. Defined sub-properties .7.20.6. Collet Size' x='1123' y='1031'>7.20.6. Collet Size</text><title>7.20.6. Collet Size
+decimal</title></a>
+<text x='1357' y='1028' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.7. Computer Controlled'><text id='INSTANCE.7.20. Defined sub-properties .7.20.7. Computer Controlled' x='1123' y='1047'>7.20.7. Computer Controlled</text><title>7.20.7. Computer Controlled
+decimal</title></a>
+<text x='1357' y='1044' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.8. Cross Slide Travel'><text id='INSTANCE.7.20. Defined sub-properties .7.20.8. Cross Slide Travel' x='1123' y='1063'>7.20.8. Cross Slide Travel</text><title>7.20.8. Cross Slide Travel
+decimal</title></a>
+<text x='1357' y='1060' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.9. Daylight / Opening'><text id='INSTANCE.7.20. Defined sub-properties .7.20.9. Daylight / Opening' x='1123' y='1079'>7.20.9. Daylight / Opening</text><title>7.20.9. Daylight / Opening
+text</title></a>
+<text x='1357' y='1076' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.10. Distance Between Centres'><text id='INSTANCE.7.20. Defined sub-properties .7.20.10. Distance Between Centres' x='1123' y='1095'>7.20.10. Distance Between Centres</text><title>7.20.10. Distance Between Centres
+decimal</title></a>
+<text x='1357' y='1092' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.11. Ejector Threads'><text id='INSTANCE.7.20. Defined sub-properties .7.20.11. Ejector Threads' x='1123' y='1111'>7.20.11. Ejector Threads</text><title>7.20.11. Ejector Threads
+decimal</title></a>
+<text x='1357' y='1108' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.12. Extraction System'><text id='INSTANCE.7.20. Defined sub-properties .7.20.12. Extraction System' x='1123' y='1127'>7.20.12. Extraction System</text><title>7.20.12. Extraction System
+boolean</title></a>
+<text x='1357' y='1124' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.13. Gantry Material'><text id='INSTANCE.7.20. Defined sub-properties .7.20.13. Gantry Material' x='1123' y='1143'>7.20.13. Gantry Material</text><title>7.20.13. Gantry Material
+relationship</title></a>
+  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.14. Hot Runner Compatible'><text id='INSTANCE.7.20. Defined sub-properties .7.20.14. Hot Runner Compatible' x='1123' y='1159'>7.20.14. Hot Runner Compatible</text><title>7.20.14. Hot Runner Compatible
+boolean</title></a>
+<text x='1357' y='1156' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.15. Laser Power'><text id='INSTANCE.7.20. Defined sub-properties .7.20.15. Laser Power' x='1123' y='1175'>7.20.15. Laser Power</text><title>7.20.15. Laser Power
+decimal</title></a>
+<text x='1357' y='1172' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.16. Layer Resolution'><text id='INSTANCE.7.20. Defined sub-properties .7.20.16. Layer Resolution' x='1123' y='1191'>7.20.16. Layer Resolution</text><title>7.20.16. Layer Resolution
+decimal</title></a>
+<text x='1357' y='1188' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.17. Locating Ring Diameter'><text id='INSTANCE.7.20. Defined sub-properties .7.20.17. Locating Ring Diameter' x='1123' y='1207'>7.20.17. Locating Ring Diameter</text><title>7.20.17. Locating Ring Diameter
+decimal</title></a>
+<text x='1357' y='1204' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.18. Material Worked ??'><text id='INSTANCE.7.20. Defined sub-properties .7.20.18. Material Worked ??' x='1123' y='1223'>7.20.18. Material Worked ??</text><title>7.20.18. Material Worked ??
+relationship
+Material Type</title></a>
+  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.19. Maximum Clamping Force'><text id='INSTANCE.7.20. Defined sub-properties .7.20.19. Maximum Clamping Force' x='1123' y='1239'>7.20.19. Maximum Clamping Force</text><title>7.20.19. Maximum Clamping Force
+decimal</title></a>
+<text x='1357' y='1236' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.20. Maximum Shot Volume'><text id='INSTANCE.7.20. Defined sub-properties .7.20.20. Maximum Shot Volume' x='1123' y='1255'>7.20.20. Maximum Shot Volume</text><title>7.20.20. Maximum Shot Volume
+decimal</title></a>
+<text x='1357' y='1252' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.21. Maximum Spindle Speed'><text id='INSTANCE.7.20. Defined sub-properties .7.20.21. Maximum Spindle Speed' x='1123' y='1271'>7.20.21. Maximum Spindle Speed</text><title>7.20.21. Maximum Spindle Speed
+decimal</title></a>
+<text x='1357' y='1268' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.22. Maximum Tie Bar Distance'><text id='INSTANCE.7.20. Defined sub-properties .7.20.22. Maximum Tie Bar Distance' x='1123' y='1287'>7.20.22. Maximum Tie Bar Distance</text><title>7.20.22. Maximum Tie Bar Distance
+decimal</title></a>
+<text x='1357' y='1284' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.23. Nozzle Size'><text id='INSTANCE.7.20. Defined sub-properties .7.20.23. Nozzle Size' x='1123' y='1303'>7.20.23. Nozzle Size</text><title>7.20.23. Nozzle Size
+decimal</title></a>
+<text x='1357' y='1300' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.24. Nozzle Radius'><text id='INSTANCE.7.20. Defined sub-properties .7.20.24. Nozzle Radius' x='1123' y='1319'>7.20.24. Nozzle Radius</text><title>7.20.24. Nozzle Radius
+decimal</title></a>
+<text x='1357' y='1316' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.25. Optimal Material'><text id='INSTANCE.7.20. Defined sub-properties .7.20.25. Optimal Material' x='1123' y='1335'>7.20.25. Optimal Material</text><title>7.20.25. Optimal Material
+relationship</title></a>
+  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.26. Pieceholding Type'><text id='INSTANCE.7.20. Defined sub-properties .7.20.26. Pieceholding Type' x='1123' y='1351'>7.20.26. Pieceholding Type</text><title>7.20.26. Pieceholding Type
+text</title></a>
+<text x='1357' y='1348' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.27. Press Force'><text id='INSTANCE.7.20. Defined sub-properties .7.20.27. Press Force' x='1123' y='1367'>7.20.27. Press Force</text><title>7.20.27. Press Force
+decimal</title></a>
+<text x='1357' y='1364' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.28. Punch Force'><text id='INSTANCE.7.20. Defined sub-properties .7.20.28. Punch Force' x='1123' y='1383'>7.20.28. Punch Force</text><title>7.20.28. Punch Force
+decimal</title></a>
+<text x='1357' y='1380' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.29. Spindle Rotation ??'><text id='INSTANCE.7.20. Defined sub-properties .7.20.29. Spindle Rotation ??' x='1123' y='1399'>7.20.29. Spindle Rotation ??</text><title>7.20.29. Spindle Rotation ??
+decimal</title></a>
+<text x='1357' y='1396' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.30. Stations'><text id='INSTANCE.7.20. Defined sub-properties .7.20.30. Stations' x='1123' y='1415'>7.20.30. Stations</text><title>7.20.30. Stations
+boolean</title></a>
+<text x='1357' y='1412' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.31. Station size'><text id='INSTANCE.7.20. Defined sub-properties .7.20.31. Station size' x='1123' y='1431'>7.20.31. Station size</text><title>7.20.31. Station size
+decimal</title></a>
+<text x='1357' y='1428' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.32. Tailstock Sleeve Travel'><text id='INSTANCE.7.20. Defined sub-properties .7.20.32. Tailstock Sleeve Travel' x='1123' y='1447'>7.20.32. Tailstock Sleeve Travel</text><title>7.20.32. Tailstock Sleeve Travel
+decimal</title></a>
+<text x='1357' y='1444' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.33. Tooling Type'><text id='INSTANCE.7.20. Defined sub-properties .7.20.33. Tooling Type' x='1123' y='1463'>7.20.33. Tooling Type</text><title>7.20.33. Tooling Type
+text</title></a>
+<text x='1357' y='1460' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.34. Turning Capacity / Swing'><text id='INSTANCE.7.20. Defined sub-properties .7.20.34. Turning Capacity / Swing' x='1123' y='1479'>7.20.34. Turning Capacity / Swing</text><title>7.20.34. Turning Capacity / Swing
+decimal</title></a>
+<text x='1357' y='1476' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.35. Working Surface'><text id='INSTANCE.7.20. Defined sub-properties .7.20.35. Working Surface' x='1123' y='1495'>7.20.35. Working Surface</text><title>7.20.35. Working Surface
+decimal</title></a>
+<text x='1357' y='1492' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.36. X Travel'><text id='INSTANCE.7.20. Defined sub-properties .7.20.36. X Travel' x='1123' y='1511'>7.20.36. X Travel</text><title>7.20.36. X Travel
+decimal</title></a>
+<text x='1357' y='1508' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.37. Y Travel'><text id='INSTANCE.7.20. Defined sub-properties .7.20.37. Y Travel' x='1123' y='1527'>7.20.37. Y Travel</text><title>7.20.37. Y Travel
+decimal</title></a>
+<text x='1357' y='1524' text-anchor='end' class='colType'>#</text>  <a xlink:href='#INSTANCE.7.20. Defined sub-properties _7.20.38. Z Travel'><text id='INSTANCE.7.20. Defined sub-properties .7.20.38. Z Travel' x='1123' y='1543'>7.20.38. Z Travel</text><title>7.20.38. Z Travel
+decimal</title></a>
+<text x='1357' y='1540' text-anchor='end' class='colType'>#</text>
+<!-- == Table '8. Materials Properties' == -->
+<rect id='depict_INSTANCE.8. Materials Properties' class='entity' style='stroke:none;' x='1456' y='248' width='176' height='112' rx='4' ry='4' />
+<path d='M 1456 276 L 1456 252 Q 1456 248 1460 248 L 1628 248 Q 1632 248 1632 252 L 1632 276 L1456 276 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='1456' y='248' width='176' height='112' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#INSTANCE.8. Materials Properties'><text x='1474' y='267' >8. Materials Properties</text><title>Entity INSTANCE.8. Materials Properties</title></a>
+  <a xlink:href='#INSTANCE.8. Materials Properties_8.1. Manufacturer'><text id='INSTANCE.8. Materials Properties.8.1. Manufacturer' x='1475' y='295'>8.1. Manufacturer</text><title>8.1. Manufacturer
+text</title></a>
+<text x='1629' y='292' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.8. Materials Properties_8.2. Brand'><text id='INSTANCE.8. Materials Properties.8.2. Brand' x='1475' y='311'>8.2. Brand</text><title>8.2. Brand
+text</title></a>
+<text x='1629' y='308' text-anchor='end' class='colType'>t</text>  <a xlink:href='#INSTANCE.8. Materials Properties_8.3. Supplier Location'><text id='INSTANCE.8. Materials Properties.8.3. Supplier Location' x='1475' y='327'>8.3. Supplier Location</text><title>8.3. Supplier Location
+relationship</title></a>
+  <a xlink:href='#INSTANCE.8. Materials Properties_8.4. Material Type'><text id='INSTANCE.8. Materials Properties.8.4. Material Type' x='1475' y='343'>8.4. Material Type</text><title>8.4. Material Type
+text</title></a>
+<text x='1629' y='340' text-anchor='end' class='colType'>t</text>
+<!-- == Table '8.5.1. Plastics' == -->
+<rect id='depict_INSTANCE.8.5.1. Plastics' class='entity' style='stroke:none;' x='560' y='456' width='128' height='208' rx='4' ry='4' />
+<path d='M 560 484 L 560 460 Q 560 456 564 456 L 684 456 Q 688 456 688 460 L 688 484 L560 484 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='560' y='456' width='128' height='208' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#INSTANCE.8.5.1. Plastics'><text x='579' y='475' >8.5.1. Plastics</text><title>Entity INSTANCE.8.5.1. Plastics</title></a>
+  <a xlink:href='#INSTANCE.8.5.1. Plastics_HDPE'><text id='INSTANCE.8.5.1. Plastics.HDPE' x='579' y='503'>HDPE</text><title>HDPE
+boolean</title></a>
+<text x='685' y='500' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.1. Plastics_PLA'><text id='INSTANCE.8.5.1. Plastics.PLA' x='579' y='519'>PLA</text><title>PLA
+boolean</title></a>
+<text x='685' y='516' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.1. Plastics_ABS'><text id='INSTANCE.8.5.1. Plastics.ABS' x='579' y='535'>ABS</text><title>ABS
+boolean</title></a>
+<text x='685' y='532' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.1. Plastics_PET'><text id='INSTANCE.8.5.1. Plastics.PET' x='579' y='551'>PET</text><title>PET
+boolean</title></a>
+<text x='685' y='548' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.1. Plastics_Acetate'><text id='INSTANCE.8.5.1. Plastics.Acetate' x='579' y='567'>Acetate</text><title>Acetate
+boolean</title></a>
+<text x='685' y='564' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.1. Plastics_PVC'><text id='INSTANCE.8.5.1. Plastics.PVC' x='579' y='583'>PVC</text><title>PVC
+boolean</title></a>
+<text x='685' y='580' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.1. Plastics_Nylon'><text id='INSTANCE.8.5.1. Plastics.Nylon' x='579' y='599'>Nylon</text><title>Nylon
+boolean</title></a>
+<text x='685' y='596' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.1. Plastics_Polycarbonate'><text id='INSTANCE.8.5.1. Plastics.Polycarbonate' x='579' y='615'>Polycarbonate</text><title>Polycarbonate
+boolean</title></a>
+<text x='685' y='612' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.1. Plastics_Polypropylene'><text id='INSTANCE.8.5.1. Plastics.Polypropylene' x='579' y='631'>Polypropylene</text><title>Polypropylene
+boolean</title></a>
+<text x='685' y='628' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.1. Plastics_Acrylic'><text id='INSTANCE.8.5.1. Plastics.Acrylic' x='579' y='647'>Acrylic</text><title>Acrylic
+boolean</title></a>
+<text x='685' y='644' text-anchor='end' class='colType'>b</text>
+<!-- == Table '8.5.2. Metals' == -->
+<rect id='depict_INSTANCE.8.5.2. Metals' class='entity' style='stroke:none;' x='320' y='488' width='144' height='176' rx='4' ry='4' />
+<path d='M 320 516 L 320 492 Q 320 488 324 488 L 460 488 Q 464 488 464 492 L 464 516 L320 516 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='320' y='488' width='144' height='176' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#INSTANCE.8.5.2. Metals'><text x='350' y='507' >8.5.2. Metals</text><title>Entity INSTANCE.8.5.2. Metals</title></a>
+  <a xlink:href='#INSTANCE.8.5.2. Metals_Iron'><text id='INSTANCE.8.5.2. Metals.Iron' x='339' y='535'>Iron</text><title>Iron
+boolean</title></a>
+<text x='461' y='532' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.2. Metals_Steel'><text id='INSTANCE.8.5.2. Metals.Steel' x='339' y='551'>Steel</text><title>Steel
+boolean</title></a>
+<text x='461' y='548' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.2. Metals_Stainless Steel'><text id='INSTANCE.8.5.2. Metals.Stainless Steel' x='339' y='567'>Stainless Steel</text><title>Stainless Steel
+boolean</title></a>
+<text x='461' y='564' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.2. Metals_Mild Steel'><text id='INSTANCE.8.5.2. Metals.Mild Steel' x='339' y='583'>Mild Steel</text><title>Mild Steel
+boolean</title></a>
+<text x='461' y='580' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.2. Metals_Galvanised Steel'><text id='INSTANCE.8.5.2. Metals.Galvanised Steel' x='339' y='599'>Galvanised Steel</text><title>Galvanised Steel
+boolean</title></a>
+<text x='461' y='596' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.2. Metals_Aluminium'><text id='INSTANCE.8.5.2. Metals.Aluminium' x='339' y='615'>Aluminium</text><title>Aluminium
+boolean</title></a>
+<text x='461' y='612' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.2. Metals_Copper'><text id='INSTANCE.8.5.2. Metals.Copper' x='339' y='631'>Copper</text><title>Copper
+boolean</title></a>
+<text x='461' y='628' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.2. Metals_Zinc'><text id='INSTANCE.8.5.2. Metals.Zinc' x='339' y='647'>Zinc</text><title>Zinc
+boolean</title></a>
+<text x='461' y='644' text-anchor='end' class='colType'>b</text>
+<!-- == Table '8.5.3. Wood Products' == -->
+<rect id='depict_INSTANCE.8.5.3. Wood Products' class='entity' style='stroke:none;' x='320' y='264' width='144' height='96' rx='4' ry='4' />
+<path d='M 320 292 L 320 268 Q 320 264 324 264 L 460 264 Q 464 264 464 268 L 464 292 L320 292 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='320' y='264' width='144' height='96' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#INSTANCE.8.5.3. Wood Products'><text x='325' y='283' >8.5.3. Wood Products</text><title>Entity INSTANCE.8.5.3. Wood Products</title></a>
+  <a xlink:href='#INSTANCE.8.5.3. Wood Products_Softwood'><text id='INSTANCE.8.5.3. Wood Products.Softwood' x='339' y='311'>Softwood</text><title>Softwood
+boolean</title></a>
+<text x='461' y='308' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.3. Wood Products_Hardwood'><text id='INSTANCE.8.5.3. Wood Products.Hardwood' x='339' y='327'>Hardwood</text><title>Hardwood
+boolean</title></a>
+<text x='461' y='324' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.3. Wood Products_MDF'><text id='INSTANCE.8.5.3. Wood Products.MDF' x='339' y='343'>MDF</text><title>MDF
+boolean</title></a>
+<text x='461' y='340' text-anchor='end' class='colType'>b</text>
+<!-- == Table '8.5.4. Elastomers' == -->
+<rect id='depict_INSTANCE.8.5.4. Elastomers' class='entity' style='stroke:none;' x='560' y='264' width='128' height='96' rx='4' ry='4' />
+<path d='M 560 292 L 560 268 Q 560 264 564 264 L 684 264 Q 688 264 688 268 L 688 292 L560 292 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='560' y='264' width='128' height='96' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#INSTANCE.8.5.4. Elastomers'><text x='569' y='283' >8.5.4. Elastomers</text><title>Entity INSTANCE.8.5.4. Elastomers</title></a>
+  <a xlink:href='#INSTANCE.8.5.4. Elastomers_Natural Rubber'><text id='INSTANCE.8.5.4. Elastomers.Natural Rubber' x='579' y='311'>Natural Rubber</text><title>Natural Rubber
+boolean</title></a>
+<text x='685' y='308' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.4. Elastomers_TPU'><text id='INSTANCE.8.5.4. Elastomers.TPU' x='579' y='327'>TPU</text><title>TPU
+boolean</title></a>
+<text x='685' y='324' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.4. Elastomers_Silicone'><text id='INSTANCE.8.5.4. Elastomers.Silicone' x='579' y='343'>Silicone</text><title>Silicone
+boolean</title></a>
+<text x='685' y='340' text-anchor='end' class='colType'>b</text>
+<!-- == Table '8.5.5. Ceramics' == -->
+<rect id='depict_INSTANCE.8.5.5. Ceramics' class='entity' style='stroke:none;' x='112' y='760' width='112' height='96' rx='4' ry='4' />
+<path d='M 112 788 L 112 764 Q 112 760 116 760 L 220 760 Q 224 760 224 764 L 224 788 L112 788 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='112' y='760' width='112' height='96' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#INSTANCE.8.5.5. Ceramics'><text x='118' y='779' >8.5.5. Ceramics</text><title>Entity INSTANCE.8.5.5. Ceramics</title></a>
+  <a xlink:href='#INSTANCE.8.5.5. Ceramics_Geopolymers'><text id='INSTANCE.8.5.5. Ceramics.Geopolymers' x='131' y='807'>Geopolymers</text><title>Geopolymers
+boolean</title></a>
+<text x='221' y='804' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.5. Ceramics_Ceramics'><text id='INSTANCE.8.5.5. Ceramics.Ceramics' x='131' y='823'>Ceramics</text><title>Ceramics
+boolean</title></a>
+<text x='221' y='820' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.5. Ceramics_Clay'><text id='INSTANCE.8.5.5. Ceramics.Clay' x='131' y='839'>Clay</text><title>Clay
+boolean</title></a>
+<text x='221' y='836' text-anchor='end' class='colType'>b</text>
+<!-- == Table '8.5.6. Electronics' == -->
+<rect id='depict_INSTANCE.8.5.6. Electronics' class='entity' style='stroke:none;' x='48' y='584' width='176' height='80' rx='4' ry='4' />
+<path d='M 48 612 L 48 588 Q 48 584 52 584 L 220 584 Q 224 584 224 588 L 224 612 L48 612 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='48' y='584' width='176' height='80' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#INSTANCE.8.5.6. Electronics'><text x='81' y='603' >8.5.6. Electronics</text><title>Entity INSTANCE.8.5.6. Electronics</title></a>
+  <a xlink:href='#INSTANCE.8.5.6. Electronics_PCBs'><text id='INSTANCE.8.5.6. Electronics.PCBs' x='67' y='631'>PCBs</text><title>PCBs
+boolean</title></a>
+<text x='221' y='628' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.6. Electronics_Electronic Components'><text id='INSTANCE.8.5.6. Electronics.Electronic Components' x='67' y='647'>Electronic Components</text><title>Electronic Components
+boolean</title></a>
+<text x='221' y='644' text-anchor='end' class='colType'>b</text>
+<!-- == Table '8.5.7. Others' == -->
+<rect id='depict_INSTANCE.8.5.7. Others' class='entity' style='stroke:none;' x='64' y='136' width='160' height='256' rx='4' ry='4' />
+<path d='M 64 164 L 64 140 Q 64 136 68 136 L 220 136 Q 224 136 224 140 L 224 164 L64 164 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='64' y='136' width='160' height='256' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#INSTANCE.8.5.7. Others'><text x='101' y='155' >8.5.7. Others</text><title>Entity INSTANCE.8.5.7. Others</title></a>
+  <a xlink:href='#INSTANCE.8.5.7. Others_Textiles'><text id='INSTANCE.8.5.7. Others.Textiles' x='83' y='183'>Textiles</text><title>Textiles
+boolean</title></a>
+<text x='221' y='180' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.7. Others_Leather'><text id='INSTANCE.8.5.7. Others.Leather' x='83' y='199'>Leather</text><title>Leather
+boolean</title></a>
+<text x='221' y='196' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.7. Others_Concrete'><text id='INSTANCE.8.5.7. Others.Concrete' x='83' y='215'>Concrete</text><title>Concrete
+boolean</title></a>
+<text x='221' y='212' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.7. Others_Rock'><text id='INSTANCE.8.5.7. Others.Rock' x='83' y='231'>Rock</text><title>Rock
+boolean</title></a>
+<text x='221' y='228' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.7. Others_Soil'><text id='INSTANCE.8.5.7. Others.Soil' x='83' y='247'>Soil</text><title>Soil
+boolean</title></a>
+<text x='221' y='244' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.7. Others_Composite Materials'><text id='INSTANCE.8.5.7. Others.Composite Materials' x='83' y='263'>Composite Materials</text><title>Composite Materials
+boolean</title></a>
+<text x='221' y='260' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.7. Others_Food'><text id='INSTANCE.8.5.7. Others.Food' x='83' y='279'>Food</text><title>Food
+boolean</title></a>
+<text x='221' y='276' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.7. Others_Compost'><text id='INSTANCE.8.5.7. Others.Compost' x='83' y='295'>Compost</text><title>Compost
+boolean</title></a>
+<text x='221' y='292' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.7. Others_Resin'><text id='INSTANCE.8.5.7. Others.Resin' x='83' y='311'>Resin</text><title>Resin
+boolean</title></a>
+<text x='221' y='308' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.7. Others_Glass'><text id='INSTANCE.8.5.7. Others.Glass' x='83' y='327'>Glass</text><title>Glass
+boolean</title></a>
+<text x='221' y='324' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.7. Others_Carbon Fiber'><text id='INSTANCE.8.5.7. Others.Carbon Fiber' x='83' y='343'>Carbon Fiber</text><title>Carbon Fiber
+boolean</title></a>
+<text x='221' y='340' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.7. Others_Cardboard'><text id='INSTANCE.8.5.7. Others.Cardboard' x='83' y='359'>Cardboard</text><title>Cardboard
+boolean</title></a>
+<text x='221' y='356' text-anchor='end' class='colType'>b</text>  <a xlink:href='#INSTANCE.8.5.7. Others_Paper'><text id='INSTANCE.8.5.7. Others.Paper' x='83' y='375'>Paper</text><title>Paper
+boolean</title></a>
+<text x='221' y='372' text-anchor='end' class='colType'>b</text>
+<!-- == Table '9. Record Data Properties' == -->
+<rect id='depict_INSTANCE.9. Record Data Properties' class='entity' style='stroke:none;' x='112' y='952' width='208' height='160' rx='4' ry='4' />
+<path d='M 112 980 L 112 956 Q 112 952 116 952 L 316 952 Q 320 952 320 956 L 320 980 L112 980 ' style='fill:url(#tbg_3986C1);stroke-width:0;' />
+<rect class='entity' x='112' y='952' width='208' height='160' rx='4' ry='4' style='fill:none;stroke:#27292C'/>
+<a xlink:href='#INSTANCE.9. Record Data Properties'><text x='137' y='971' >9. Record Data Properties</text><title>Entity INSTANCE.9. Record Data Properties</title></a>
+  <a xlink:href='#INSTANCE.9. Record Data Properties_9.1. Date Created'><text id='INSTANCE.9. Record Data Properties.9.1. Date Created' x='131' y='999'>9.1. Date Created</text><title>9.1. Date Created
+date</title></a>
+<text x='317' y='996' text-anchor='end' class='colType'>d</text>  <a xlink:href='#INSTANCE.9. Record Data Properties_9.2. Created By'><text id='INSTANCE.9. Record Data Properties.9.2. Created By' x='131' y='1015'>9.2. Created By</text><title>9.2. Created By
+relationship</title></a>
+  <a xlink:href='#INSTANCE.9. Record Data Properties_9.3. Last Updated'><text id='INSTANCE.9. Record Data Properties.9.3. Last Updated' x='131' y='1031'>9.3. Last Updated</text><title>9.3. Last Updated
+date</title></a>
+<text x='317' y='1028' text-anchor='end' class='colType'>d</text>  <a xlink:href='#INSTANCE.9. Record Data Properties_9.4. Updated By'><text id='INSTANCE.9. Record Data Properties.9.4. Updated By' x='131' y='1047'>9.4. Updated By</text><title>9.4. Updated By
+relationship</title></a>
+  <a xlink:href='#INSTANCE.9. Record Data Properties_9.5. Date Verified'><text id='INSTANCE.9. Record Data Properties.9.5. Date Verified' x='131' y='1063'>9.5. Date Verified</text><title>9.5. Date Verified
+date</title></a>
+<text x='317' y='1060' text-anchor='end' class='colType'>d</text>  <a xlink:href='#INSTANCE.9. Record Data Properties_9.6. Verified By'><text id='INSTANCE.9. Record Data Properties.9.6. Verified By' x='131' y='1079'>9.6. Verified By</text><title>9.6. Verified By
+relationship</title></a>
+  <a xlink:href='#INSTANCE.9. Record Data Properties_9.7. Data Collection Method'><text id='INSTANCE.9. Record Data Properties.9.7. Data Collection Method' x='131' y='1095'>9.7. Data Collection Method</text><title>9.7. Data Collection Method
+text</title></a>
+<text x='317' y='1092' text-anchor='end' class='colType'>t</text>
+</g></svg>

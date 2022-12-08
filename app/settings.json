@@ -1,0 +1,17 @@
+{
+    "default_page_size": 10,
+    "max_returned_rows": 20000,
+    "num_sql_threads": 10,
+    "sql_time_limit_ms": 9000,
+    "default_facet_size": 100,
+    "facet_time_limit_ms": 9000,
+    "facet_suggest_time_limit_ms": 5000,
+    "allow_facet": true,
+    "suggest_facets": false,
+    "cache_size_kb": 5000,
+    "allow_csv_stream": true,
+    "max_csv_mb": 100,
+    "truncate_cells_html": 0,
+    "template_debug": false,
+    "base_url": "/"
+}
