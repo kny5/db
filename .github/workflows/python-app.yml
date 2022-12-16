@@ -31,4 +31,4 @@ jobs:
     - name: Test datasette
       run: |
         datasette --help
-        datasette app
+        
