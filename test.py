@@ -11,7 +11,7 @@ def test_map(host, port):
         map_test = Popen(cmd1, shell=False)    
     except:
         print('cmd error')
-        raise Exception()
+        raise Exception("cmd error exception")
         return False
     try:
         urlopen(str('http://'+str(host)+':'+str(port)))
