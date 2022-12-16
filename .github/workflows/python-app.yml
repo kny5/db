@@ -30,4 +30,5 @@ jobs:
 
     - name: Test datasette
       run: |
-        python test.py
+        datasette --help
+        datasette app
