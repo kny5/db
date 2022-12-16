@@ -5,9 +5,10 @@ from urllib.error import URLError
 
 def test_map(host, port):
     cmd = "datasette app --static assets:static-files --static images:images --template-dir=app/templates/ -h {h} -p {p} ".format(h=host, p=port)
+    cmd1 = "datasette --help"
     print('URL:', cmd)
     try:
-        map_test = Popen(cmd, shell=False)    
+        map_test = Popen(cmd1, shell=False)    
     except:
         print('cmd error')
         raise Exception()
