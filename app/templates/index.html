@@ -1,41 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>My HTML Document</title>
     <style>
-        .container {  display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 0.2fr 0.5fr 1fr 1fr;
-            gap: 10px 10px;
-            grid-auto-flow: row dense;
-            grid-template-areas:
-              "navbar"
-              "header"
-              "map_holder"
-              "instructions";
-          }
+      html {
+        height: 100%;
+      }
 
-.navbar { grid-area: navbar; }
+      body {
+        min-height: 100%;
+      }
 
-.header { grid-area: header; }
+      .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 0.5fr 1fr 1fr;
+        gap: 10px 10px;
+        grid-auto-flow: row dense;
+        grid-template-areas:
+          "navbar"
+          "header"
+          "map_holder"
+          "instructions";
+      }
 
-.map_holder { grid-area: map_holder; }
+      .navbar {
+        grid-area: navbar;
+      }
 
-.instructions { grid-area: instructions; }
+      .header {
+        grid-area: header;
+      }
 
+      .map_holder {
+        grid-area: map_holder;
+      }
+
+      .instructions {
+        grid-area: instructions;
+      }
     </style>
-</head>
-<body>
-  <div class="container">
-    <div class="navbar"></div>
-    <div class="header"></div>
-    <div class="map_holder">
-      <iframe src="https://kny5.github.io/data_reports/reports/proto_01.html" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="0" marginheight="0px" marginwidth="0px" height="100%" width="100%" allowfullscreen></iframe>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar"></div>
+      <div class="header"></div>
+      <div class="map_holder">
+        <iframe src="https://kny5.github.io/data_reports/reports/proto_01.html" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="0" marginheight="0px" marginwidth="0px" height="100%" width="100%" allowfullscreen></iframe>
+      </div>
+      <div class="instructions">
+        <iframe src="https://kny5.github.io/data_reports/reports/machines_in_fablabs_geomachines.html" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="0" marginheight="0px" marginwidth="0px" height="100%" width="100%" allowfullscreen></iframe>
+      </div>
     </div>
-    <div class="instructions">
-      <iframe src="https://kny5.github.io/data_reports/reports/machines_in_fablabs_geomachines.html" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="0" marginheight="0px" marginwidth="0px" height="100%" width="100%" allowfullscreen></iframe>
-    </div>
-</div>
-</body>
+  </body>
 </html>
-
