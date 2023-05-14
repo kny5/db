@@ -1,35 +1,4 @@
-    <style>
-      .container {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 0.2fr 0.5fr 1fr 1fr;
-        gap: 10px 10px;
-        grid-auto-flow: row dense;
-        grid-template-areas:
-          "navbar"
-          "header"
-          "map_holder"
-          "instructions";
-      }
-
-      .navbar {
-        grid-area: navbar;
-      }
-
-      .header {
-        grid-area: header;
-      }
-
-      .map_holder {
-        grid-area: map_holder;
-      }
-
-      .instructions {
-        grid-area: instructions;
-      }
-    </style>
-
-    <div class="container">
+<div class="container">
       <div class="navbar"></div>
       <div class="header"></div>
       <div class="map_holder">
