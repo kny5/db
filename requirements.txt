@@ -1,2 +1,0 @@
-﻿datasette==0.63.2
-datasette-cluster-map==0.17.2
